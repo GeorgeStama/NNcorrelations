@@ -8,7 +8,7 @@
 
 #SBATCH --mail-type=END
 #SBATCH --mail-type=FAIL
-#SBATCH --mail-user=Adrian.Johnston@student.adelaide.edu.au
+#SBATCH --mail-user=george.stamatescu@student.adelaide.edu.au
 
 source $HOME/.bashrc
 
