@@ -523,6 +523,7 @@ def train(epoch, model):
         start = time.time()
         if args.cuda:
             data, target = data.cuda(), target.cuda()
+
         data, target = Variable(data), Variable(target)
 
         optimizer.zero_grad()
@@ -595,6 +596,8 @@ for dr in range(len(scale_arr)):
         H1, H2 = Hs[l]
         #model = MVG_binaryNet(H1, H2)
         modelbin_ebp = EBP_binaryNet(H1,drop_prb,scale)
+        modelbin_ebp.cuda()
+
         #modelbin_ebp.load_state_dict(torch.load('pickledpy.py'))
 
         #modelbin_ebp = EBP_binaryNet(H1, drop_prb, scale)
