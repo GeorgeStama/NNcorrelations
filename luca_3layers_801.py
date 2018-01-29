@@ -10,7 +10,7 @@ from torch.autograd import Variable
 import math
 from torch.nn.parameter import Parameter
 import time
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 # Training settings
 parser = argparse.ArgumentParser(description='PyTorch MNIST Example')
