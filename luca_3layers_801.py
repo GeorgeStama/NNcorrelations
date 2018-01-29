@@ -604,15 +604,6 @@ for dr in range(len(scale_arr)):
 
 
 # ... after training, save your model
-#torch.save(modelbin_ebp.state_dict(), 'saved_models')
+torch.save(modelbin_ebp.state_dict(), 'lucasave_1.py')
 # .. to load your previously training model:
 #modelbin_ebp.load_state_dict(torch.load('pickledpy.py'))
-
-
-plt.plot(torch.squeeze(testcorr_avg_EBP).numpy(),label = 'EBP_test')
-plt.plot(torch.squeeze(testcorr_avg_EBPrelaxed).numpy(),label = 'EBP_relax_test')
-plt.plot(torch.squeeze(testcorr_avg_MVG).numpy(),label = 'MVG_test')
-plt.plot(torch.squeeze(testcorr_avg_MVGrelaxed).numpy(),label = 'MVG_relax_test')
-plt.legend()
-plt.ylabel('test performance %')
-plt.show()
