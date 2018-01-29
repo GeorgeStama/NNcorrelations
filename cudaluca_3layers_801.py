@@ -18,7 +18,7 @@ parser.add_argument('--batch-size', type=int, default=64, metavar='N',
                     help='input batch size for training (default: 64)')
 parser.add_argument('--test-batch-size', type=int, default=1000, metavar='N',
                     help='input batch size for testing (default: 1000)')
-parser.add_argument('--epochs', type=int, default=50, metavar='N',
+parser.add_argument('--epochs', type=int, default=900, metavar='N',
                     help='number of epochs to train (default: 10)')
 parser.add_argument('--lr', type=float, default=0.1, metavar='LR',
                     help='learning rate (default: 0.01)')
@@ -265,6 +265,6 @@ for dr in range(len(scale_arr)):
 
 
 # ... after training, save your model
-torch.save(modelbin_ebp.state_dict(), 'lucasave_1.py')
+torch.save(modelbin_ebp.state_dict(), 'lucasave_longer.py')
 # .. to load your previously training model:
 #modelbin_ebp.load_state_dict(torch.load('pickledpy.py'))
