@@ -592,8 +592,7 @@ for dr in range(len(scale_arr)):
         H1, H2 = Hs[l]
         #model = MVG_binaryNet(H1, H2)
         modelbin_ebp = EBP_binaryNet(H1,drop_prb,scale)
-        #modelbin_ebp.load_state_dict(torch.load('pickledpy.py'))
-
+        modelbin_ebp.load_state_dict(torch.load('lucasave_1.py', map_location=lambda storage, loc: storage))
         #modelbin_ebp = EBP_binaryNet(H1, drop_prb, scale)
 
         optimizer = optim.Adam(modelbin_ebp.parameters(), lr=LR)
