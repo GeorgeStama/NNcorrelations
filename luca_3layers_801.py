@@ -568,7 +568,7 @@ def test(epoch, model):
         100. * correct / len(test_loader.dataset)))
     return test_loss / len(test_loader.dataset), 100. * correct / len(test_loader.dataset)
 
-Hs = np.array([[30,30]])
+Hs = np.array([[801,801]])
 scale_arr = np.array([[0.1]])
 LR = 1e-2
 drop_prb = 0.
