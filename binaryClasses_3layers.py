@@ -41,7 +41,7 @@ class MVG_binaryNet(nn.Module):
         self.drop_prob = dropprob
         self.hidden1 = H1
         self.hidden2 = H2
-        self.D_out = 10
+        self.D_out = 1
         self.scale = scale
         self.w0 = Parameter(torch.Tensor(28 * 28, self.hidden1))
         stdv = 1. / math.sqrt(self.w0.data.size(1))
@@ -161,7 +161,7 @@ class MVG_binaryNetRelaxed(nn.Module):
         self.drop_prob = dropprob
         self.hidden1 = H1
         self.hidden2 = H2
-        self.D_out = 10
+        self.D_out = 11
         self.scale = scale
         self.w0 = Parameter(torch.Tensor(28 * 28, self.hidden1))
         stdv = 1. / math.sqrt(self.w0.data.size(1))
@@ -274,7 +274,7 @@ class EBP_binaryNetRelaxed(nn.Module):
         self.sq2pi = 0.797884560
         self.beta = 1.0
         self.hidden = H
-        self.D_out = 10
+        self.D_out = 1
         self.scale = scale
 
         self.w0 = Parameter(torch.Tensor(28 * 28,  self.hidden))
@@ -384,7 +384,7 @@ class EBP_binaryNet(nn.Module):
         self.sq2pi = 0.797884560
         self.samp = 20
         self.hidden = H1
-        self.D_out = 10
+        self.D_out = 1
         self.scale = scale
         self.w0 = Parameter(torch.Tensor(28 * 28,  self.hidden))
         stdv = 1. / math.sqrt(self.w0.data.size(1))
@@ -436,11 +436,7 @@ class EBP_binaryNet(nn.Module):
 
         return xbar_next, xcov_next
 
-    def expected_loss(self, target, forward_result):
-        (a2, logprobs_out) = forward_result
-        return F.nll_loss(logprobs_out, target)
-
-    def forward(self, x, target):
+    def forward(self, x, target,classweight):
         m0 = 2 * F.sigmoid(self.w0) - 1
         m1 = 2 * torch.sigmoid(self.w1) - 1
         m2 = 2 * torch.sigmoid(self.w2) - 1
@@ -482,15 +478,19 @@ class EBP_binaryNet(nn.Module):
         diagsiglast = tem[:, ::(H2 + 1)]
 
         hlastbar = (x4bar.mm(mlast) + self.thlast.repeat(x1bar.size()[0], 1))
-        #hlast = sq2pi*hlastbar/torch.sqrt(diagsiglast)
+        hlast = sq2pi*hlastbar/torch.sqrt(diagsiglast)
 
-        logprobs_out = F.log_softmax(hlastbar)
-        val, ind = torch.max(hlastbar, 1)
+        m = nn.Sigmoid()
+        loss_binary = nn.BCELoss()
+        #print(classweight)
+        loss_binary.weight = classweight
+        #print(hlast, y)
+        expected_loss = loss_binary(torch.squeeze(m(hlast)), torch.squeeze(y[:, 0]).type(dtype))
+        val, ind = torch.max(hlast, 1)
         tem = y.type(dtype) - ind.type(dtype)[:, None]
         fraction_correct = (M_double - torch.sum((tem != 0)).type(dtype)) / M_double
-        expected_loss =  self.expected_loss(target, (hlastbar, logprobs_out))
 
-        return ((hlastbar, logprobs_out,xcov_4)), expected_loss, fraction_correct
+        return ((hlastbar, xcov_4)), expected_loss, fraction_correct
 
 
 args.cuda = not args.no_cuda and torch.cuda.is_available()
@@ -519,11 +519,19 @@ def train(epoch, model):
         start = time.time()
         if args.cuda:
             data, target = data.cuda(), target.cuda()
+
+        ind_bin = (target==9).nonzero()
+        classweight = torch.randn(64,1)
+        classweight[:] = 1./10.
+        classweight[ind_bin[:,0]] = 9./10.
+        target[:] = 0
+        if len(ind_bin.numpy())!=0:
+            target[ind_bin[:,0]] = 1
         data, target = Variable(data), Variable(target)
 
         optimizer.zero_grad()
-        ((a2, logprobs_out, xcov_3)), loss, frac_corr = model(data, target)
-
+        ((a2, xcov_3)), loss, frac_corr = model(data, target,classweight[:,0])
+        #print('hbar', torch.sigmoid(a2), target)
         loss.backward()
         train_loss += loss.data[0]
         frac_correct_sum += frac_corr.data[0]
@@ -532,6 +540,7 @@ def train(epoch, model):
 
         optimizer.step()
         if batch_idx % args.log_interval == 0:
+            loss_binary = nn.BCELoss()
             pos = torch.sum((xcov_3>0))
             neg = torch.sum((xcov_3<0))
             #print(xcov_3[0,:,:])#,xcov_3.size(), pos,neg)
@@ -567,7 +576,7 @@ def test(epoch, model):
         100. * correct / len(test_loader.dataset)))
     return test_loss / len(test_loader.dataset), 100. * correct / len(test_loader.dataset)
 
-Hs = np.array([[801,801]])
+Hs = np.array([[31,31]])
 scale_arr = np.array([[0.1]])
 LR = 1e-2
 drop_prb = 0.
@@ -591,8 +600,6 @@ for dr in range(len(scale_arr)):
         H1, H2 = Hs[l]
         #model = MVG_binaryNet(H1, H2)
         modelbin_ebp = EBP_binaryNet(H1,drop_prb,scale)
-        modelbin_ebp.load_state_dict(torch.load('lucasave_1.py', map_location=lambda storage, loc: storage))
-        #modelbin_ebp = EBP_binaryNet(H1, drop_prb, scale)
 
         optimizer = optim.Adam(modelbin_ebp.parameters(), lr=LR)
 
@@ -602,6 +609,6 @@ for dr in range(len(scale_arr)):
 
 
 # ... after training, save your model
-torch.save(modelbin_ebp.state_dict(), 'lucasave_1.py')
+#torch.save(modelbin_ebp.state_dict(), 'lucasave_1.py')
 # .. to load your previously training model:
 #modelbin_ebp.load_state_dict(torch.load('pickledpy.py'))
