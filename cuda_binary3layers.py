@@ -527,11 +527,11 @@ def train(epoch, model):
     train_loss_loop = torch.zeros(938)
     for batch_idx, (data, target) in enumerate(train_loader):
         start = time.time()
+        maxtarget = torch.max(target)
+        target = (target == maxtarget).type(torch.DoubleTensor)
 
         if args.cuda:
             data, target = data.cuda(), target.cuda()
-        maxtarget = torch.max(target)
-        target = (target == maxtarget).type(torch.DoubleTensor)
 
         data, target = Variable(data), Variable(target)
         x = data.view(-1, 28 * 28)
@@ -613,6 +613,7 @@ for dr in range(len(scale_arr)):
         H1, H2 = Hs[l]
         #model = MVG_binaryNet(H1, H2)
         modelbin_mvg = MVG_binaryNet(H1, H2,drop_prb,scale)
+        modelbin_mvg.cuda()
 
         optimizer = optim.SGD(modelbin_mvg.parameters(), lr=LR)
 
@@ -629,6 +630,7 @@ for dr in range(len(scale_arr)):
         H1, H2 = Hs[l]
         #model = MVG_binaryNet(H1, H2)
         modelbin_ebp = EBP_binaryNet(H1,drop_prb,scale)
+        modelbin_ebp.cuda()
 
         optimizer = optim.SGD(modelbin_ebp.parameters(), lr=LR)
 
