@@ -132,7 +132,7 @@ class MVG_binaryNet(nn.Module):
         x1bar = torch.tanh(h1)
         x1bar_d0 = F.dropout(x1bar, p=self.drop_prob, training=self.training)
 
-        ey = Variable(torch.eye(H))
+        ey = Variable(torch.eye(H).cuda())
         xcov_1 = ey[None, :, :]*(1 - x1bar_d0[:, None, :] ** 2) # diag cov neurons layer 1
 
         '''NEW LAYER FUNCTION'''
