@@ -1,0 +1,10 @@
+pyenv-virtualenv: prompt changing will be removed from future release. configure `export PYENV_VIRTUALENV_DISABLE_PROMPT=1' to simulate the behavior.
+cudaluca_3layers_801.py:146: UserWarning: Implicit dimension choice for log_softmax has been deprecated. Change the call to include dim=X as an argument.
+  logprobs_out = F.log_softmax(hlastbar)
+Train Epoch: 1 [0/60000 (0%)]	Loss: 0.035978 0.078125
+Train Epoch: 1 [2560/60000 (4%)]	Loss: 0.035978 0.09375
+Train Epoch: 1 [5120/60000 (9%)]	Loss: 0.036006 0.046875
+Train Epoch: 1 [7680/60000 (13%)]	Loss: 0.036085 0.015625
+Train Epoch: 1 [10240/60000 (17%)]	Loss: 0.035925 0.171875
+Train Epoch: 1 [12800/60000 (21%)]	Loss: 0.035901 0.15625
+slurmstepd: error: *** JOB 6187719 ON r1n35 CANCELLED AT 2018-02-03T18:55:42 ***
