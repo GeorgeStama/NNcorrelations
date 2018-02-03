@@ -1,9 +1,9 @@
 #!/bin/bash
 #SBATCH -p batch
 #SBATCH -N 1
-#SBATCH -n 8
-#SBATCH --time=1-00:00:00
-#SBATCH --mem=32GB
+#SBATCH -n 4
+#SBATCH --time=2-00:00:00
+#SBATCH --mem=16GB
 #SBATCH --gres=gpu:1
 
 #SBATCH --mail-type=END
