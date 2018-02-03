@@ -92,7 +92,7 @@ class MVG_binaryNet(nn.Module):
         xbar_next = torch.tanh(h)  # this is equal to 2*torch.sigmoid(2*h1)-1 - NEED THE 2 in the argument!
 
         # x covariance across layer 2
-        ey = Variable(torch.eye(H2))
+        ey = Variable(torch.eye(H2).cuda())
         #xc2 = (1 - xbar_next ** 2)
         #xcov_next = self.sq2pi * sigma * xc2[:, :, None] * xc2[:, None, :] / torch.sqrt(diagsig2[:, :, None] * diagsig2[:, None, :]) + ey[None, :, :] * (
         #    1 - xbar_next[:, None, :] ** 2)
