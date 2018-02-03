@@ -151,9 +151,8 @@ class MVG_binaryNet(nn.Module):
         hlast = sq2pi*hlastbar/torch.sqrt(diagsiglast)
 
         loss_binary = nn.BCELoss()
-        m = F.sigmoid()
         expected_loss = loss_binary(torch.squeeze(m(hlast)), torch.squeeze(y[:,0]).type(dtype))
-        logprobs_out = torch.log(m(hlast))
+        logprobs_out = torch.log(F.sigmoid(hlast))
         pred = (torch.sigmoid(hlast) > 0.5).type(dtype)
         a = torch.abs((pred - y.type(dtype)))
         fraction_correct = (M_double - torch.sum(a)) / M_double
@@ -491,9 +490,8 @@ class EBP_binaryNet(nn.Module):
 
 
         loss_binary = nn.BCELoss()
-        m = F.sigmoid()
         expected_loss = loss_binary(torch.squeeze(m(hlast)), torch.squeeze(y[:,0]).type(dtype))
-        logprobs_out = torch.log(m(hlast))
+        logprobs_out = torch.log(F.sigmoid(hlast))
         pred = (torch.sigmoid(hlast) > 0.5).type(dtype)
         a = torch.abs((pred - y.type(dtype)))
         fraction_correct = (M_double - torch.sum(a)) / M_double
