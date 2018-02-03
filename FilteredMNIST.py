@@ -8,8 +8,6 @@ import numpy as np
 import torch
 import codecs
 
-import matplotlib.pyplot as plt
-
 
 class FilteredMNIST(data.Dataset):
     """`MNIST <http://yann.lecun.com/exdb/mnist/>`_ Dataset.
