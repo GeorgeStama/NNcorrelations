@@ -20,7 +20,7 @@ parser.add_argument('--batch-size', type=int, default=64, metavar='N',
                     help='input batch size for training (default: 64)')
 parser.add_argument('--test-batch-size', type=int, default=1000, metavar='N',
                     help='input batch size for testing (default: 1000)')
-parser.add_argument('--epochs', type=int, default=50, metavar='N',
+parser.add_argument('--epochs', type=int, default=20, metavar='N',
                     help='number of epochs to train (default: 10)')
 parser.add_argument('--lr', type=float, default=0.1, metavar='LR',
                     help='learning rate (default: 0.01)')
@@ -491,13 +491,12 @@ class EBP_binaryNet(nn.Module):
 
 
         loss_binary = nn.BCELoss()
-        m = nn.Sigmoid()
-        expected_loss = loss_binary(torch.squeeze(m(hlast)), torch.squeeze(y[:,0]).type(dtype))
-        logprobs_out = torch.log(m(hlast))
+        expected_loss = loss_binary(torch.squeeze(torch.sigmoid(hlast)), torch.squeeze(y[:,0]).type(dtype))
+        logprobs_out = torch.log(torch.sigmoid(hlast))
         pred = (torch.sigmoid(hlast) > 0.5).type(dtype)
         a = torch.abs((pred - y.type(dtype)))
         fraction_correct = (M_double - torch.sum(a)) / M_double
-
+        print(fraction_correct)
         return ((hlastbar,logprobs_out, xcov_4)), expected_loss, fraction_correct
 
 
@@ -588,9 +587,9 @@ def test(epoch, model):
         #100. * correct / len(test_loader.dataset)))
     return test_loss / len(test_loader.dataset),100. * frac_correct_sum / count
 
-Hs = np.array([[30,30]])
+Hs = np.array([[10,10]])
 scale_arr = np.array([[0.1]])
-LR = 1e-3
+LR = 2e-2
 drop_prb = 0.
 
 testcorr_avg_EBPrelaxed = torch.zeros(args.epochs,len(Hs),len(scale_arr))
@@ -610,22 +609,6 @@ fMVG = torch.zeros(args.epochs,len(Hs),len(scale_arr))
 fEBP = torch.zeros(args.epochs,len(Hs),len(scale_arr))
 
 
-print('Full covariance')
-for dr in range(len(scale_arr)):
-    scale = scale_arr[dr][0]
-    for l in range(len(Hs)):
-        H1, H2 = Hs[l]
-        #model = MVG_binaryNet(H1, H2)
-        modelbin_mvg = MVG_binaryNet(H1, H2,drop_prb,scale)
-
-        optimizer = optim.SGD(modelbin_mvg.parameters(), lr=LR)
-
-        for epoch in range(1, args.epochs + 1):
-            traincorr_avg_MVG[epoch - 1, l, dr] = train(epoch,modelbin_mvg)
-            fMVG[epoch - 1,l,dr], testcorr_avg_MVG[epoch - 1,l,dr] = test(epoch,modelbin_mvg)
-
-
-
 print('Diagonal covariance')
 
 
@@ -642,7 +625,19 @@ for dr in range(len(scale_arr)):
             traincorr_avg_EBP[epoch - 1, l, dr] = train(epoch,modelbin_ebp)
             fEBP[epoch - 1,l,dr], testcorr_avg_EBP[epoch - 1,l,dr] = test(epoch,modelbin_ebp)
 
+print('Full covariance')
+for dr in range(len(scale_arr)):
+    scale = scale_arr[dr][0]
+    for l in range(len(Hs)):
+        H1, H2 = Hs[l]
+        # model = MVG_binaryNet(H1, H2)
+        modelbin_mvg = MVG_binaryNet(H1, H2, drop_prb, scale)
 
+        optimizer = optim.SGD(modelbin_mvg.parameters(), lr=LR)
+
+        for epoch in range(1, args.epochs + 1):
+            traincorr_avg_MVG[epoch - 1, l, dr] = train(epoch, modelbin_mvg)
+            fMVG[epoch - 1, l, dr], testcorr_avg_MVG[epoch - 1, l, dr] = test(epoch, modelbin_mvg)
 
 # ... after training, save your model
 #torch.save(modelbin_ebp.state_dict(), 'lucasave_1.py')
