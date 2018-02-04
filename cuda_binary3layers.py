@@ -642,5 +642,5 @@ torch.save(modelbin_ebp.state_dict(), 'binaryClssify.py')
 # .. to load your previously training model:
 np.save('trnEBP',torch.squeeze(traincorr_avg_EBP).numpy())
 np.save('trnMVG',torch.squeeze(traincorr_avg_MVG).numpy())
-np.save('testEBP',torch.squeeze(traincorr_avg_MVG).numpy())
-np.save('testMVG',torch.squeeze(traincorr_avg_MVG).numpy())
+np.save('testEBP',torch.squeeze(testcorr_avg_EBP).numpy())
+np.save('testMVG',torch.squeeze(testcorr_avg_MVG).numpy())
