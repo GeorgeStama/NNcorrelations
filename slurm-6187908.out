@@ -1,0 +1,18 @@
+pyenv-virtualenv: prompt changing will be removed from future release. configure `export PYENV_VIRTUALENV_DISABLE_PROMPT=1' to simulate the behavior.
+Traceback (most recent call last):
+  File "cuda_binary3layers.py", line 619, in <module>
+    traincorr_avg_MVG[epoch - 1, l, dr] = train(epoch,modelbin_mvg)
+  File "cuda_binary3layers.py", line 540, in train
+    ((a2,logprobs_out, xcov_3)), loss, frac_corr = model(data, target)
+  File "/fast/users/a1195560/.pyenv/versions/pytorch/lib/python2.7/site-packages/torch/nn/modules/module.py", line 325, in __call__
+    result = self.forward(*input, **kwargs)
+  File "cuda_binary3layers.py", line 154, in forward
+    expected_loss = loss_binary(torch.squeeze(F.sigmoid(hlast)), torch.squeeze(y[:,0]).type(dtype))
+  File "/fast/users/a1195560/.pyenv/versions/pytorch/lib/python2.7/site-packages/torch/nn/modules/module.py", line 325, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/fast/users/a1195560/.pyenv/versions/pytorch/lib/python2.7/site-packages/torch/nn/modules/loss.py", line 372, in forward
+    size_average=self.size_average)
+  File "/fast/users/a1195560/.pyenv/versions/pytorch/lib/python2.7/site-packages/torch/nn/functional.py", line 1179, in binary_cross_entropy
+    return torch._C._nn.binary_cross_entropy(input, target, weight, size_average)
+RuntimeError: Expected object of type Variable[torch.cuda.FloatTensor] but found type Variable[torch.FloatTensor] for argument #1 'target'
+/tmp/slurmd/job6187908/slurm_script: line 21: -num_views=2: command not found
