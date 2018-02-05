@@ -586,9 +586,9 @@ def test(epoch, model):
         #100. * correct / len(test_loader.dataset)))
     return test_loss / len(test_loader.dataset),100. * frac_correct_sum / count
 
-Hs = np.array([[401,401]])
+Hs = np.array([[101,101]])
 scale_arr = np.array([[0.1]])
-LR = 1e-4
+LR = 1e-3
 drop_prb = 0.
 
 testcorr_avg_EBPrelaxed = torch.zeros(args.epochs,len(Hs),len(scale_arr))
@@ -613,7 +613,7 @@ for dr in range(len(scale_arr)):
         modelbin_mvg = MVG_binaryNet(H1, H2,drop_prb,scale)
         modelbin_mvg.cuda()
 
-        optimizer = optim.Adam(modelbin_mvg.parameters(), lr=LR)
+        optimizer = optim.Adagrad(modelbin_mvg.parameters(), lr=LR)
 
         for epoch in range(1, args.epochs + 1):
             traincorr_avg_MVG[epoch - 1, l, dr] = train(epoch,modelbin_mvg)
@@ -630,7 +630,7 @@ for dr in range(len(scale_arr)):
         modelbin_ebp = EBP_binaryNet(H1,drop_prb,scale)
         modelbin_ebp.cuda()
 
-        optimizer = optim.Adam(modelbin_ebp.parameters(), lr=LR)
+        optimizer = optim.Adagrad(modelbin_ebp.parameters(), lr=LR)
 
         for epoch in range(1, args.epochs + 1):
             traincorr_avg_EBP[epoch - 1, l, dr] = train(epoch,modelbin_ebp)

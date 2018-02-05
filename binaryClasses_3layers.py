@@ -20,7 +20,7 @@ parser.add_argument('--batch-size', type=int, default=64, metavar='N',
                     help='input batch size for training (default: 64)')
 parser.add_argument('--test-batch-size', type=int, default=1000, metavar='N',
                     help='input batch size for testing (default: 1000)')
-parser.add_argument('--epochs', type=int, default=6, metavar='N',
+parser.add_argument('--epochs', type=int, default=120, metavar='N',
                     help='number of epochs to train (default: 10)')
 parser.add_argument('--lr', type=float, default=0.1, metavar='LR',
                     help='learning rate (default: 0.01)')
@@ -586,9 +586,9 @@ def test(epoch, model):
         #100. * correct / len(test_loader.dataset)))
     return test_loss / len(test_loader.dataset),100. * frac_correct_sum / count
 
-Hs = np.array([[41,41]])
+Hs = np.array([[11,11]])
 scale_arr = np.array([[0.1]])
-LR = 1e-2
+LR = 1e-3
 drop_prb = 0.
 
 testcorr_avg_EBPrelaxed = torch.zeros(args.epochs,len(Hs),len(scale_arr))
@@ -618,8 +618,8 @@ for dr in range(len(scale_arr)):
         #model = MVG_binaryNet(H1, H2)
         modelbin_ebp = EBP_binaryNet(H1,drop_prb,scale)
 
-        #optimizer = optim.ASGD(modelbin_ebp.parameters(), lr=LR)
-        optimizer = optim.SGD(modelbin_ebp.parameters(), lr=LR, momentum=0.9)
+        optimizer = optim.Adagrad(modelbin_ebp.parameters(), lr=LR)
+       # optimizer = optim.SGD(modelbin_ebp.parameters(), lr=LR, momentum=0.9)
 
         for epoch in range(1, args.epochs + 1):
             traincorr_avg_EBP[epoch - 1, l, dr] = train(epoch,modelbin_ebp)
@@ -633,8 +633,8 @@ for dr in range(len(scale_arr)):
         # model = MVG_binaryNet(H1, H2)
         modelbin_mvg = MVG_binaryNet(H1, H2, drop_prb, scale)
 
-        #optimizer = optim.ASGD(modelbin_mvg.parameters(), lr=LR)
-        optimizer = optim.SGD(modelbin_mvg.parameters(), lr=LR, momentum=0.9)
+        optimizer = optim.Adagrad(modelbin_mvg.parameters(), lr=LR)
+        #optimizer = optim.SGD(modelbin_mvg.parameters(), lr=LR, momentum=0.9)
 
         for epoch in range(1, args.epochs + 1):
             traincorr_avg_MVG[epoch - 1, l, dr] = train(epoch, modelbin_mvg)
