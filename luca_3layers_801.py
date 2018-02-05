@@ -432,7 +432,7 @@ class EBP_binaryNet(nn.Module):
 
         # x covariance across layer 2
         xc2 = (1 - xbar_next ** 2)
-        xcov_next = Variable(torch.eye(H).cuda())[None, :, :] * (1 - xbar_next[:, None, :] ** 2)
+        xcov_next = Variable(torch.eye(H))[None, :, :] * (1 - xbar_next[:, None, :] ** 2)
         #xcov_next = Variable(torch.eye(H))[None, :, :] * (1 - xbar_next[:, None, :] ** 2)
 
         return xbar_next, xcov_next
