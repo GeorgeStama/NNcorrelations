@@ -586,9 +586,9 @@ def test(epoch, model):
         #100. * correct / len(test_loader.dataset)))
     return test_loss / len(test_loader.dataset),100. * frac_correct_sum / count
 
-Hs = np.array([[101,101]])
+Hs = np.array([[41,41]])
 scale_arr = np.array([[0.01]])
-LR = 1e-4
+LR = 1e-2
 drop_prb = 0.
 
 testcorr_avg_EBPrelaxed = torch.zeros(args.epochs,len(Hs),len(scale_arr))
