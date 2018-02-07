@@ -1,0 +1,5 @@
+pyenv-virtualenv: prompt changing will be removed from future release. configure `export PYENV_VIRTUALENV_DISABLE_PROMPT=1' to simulate the behavior.
+Train Epoch: 1 [0/12089 (0%)]	Loss: 0.010830 0.578125
+Train Epoch: 1 [2560/12089 (21%)]	Loss: 0.010830 0.59375
+Train Epoch: 1 [5120/12089 (42%)]	Loss: 0.010830 0.546875
+slurmstepd: error: *** JOB 6198948 ON r3n31 CANCELLED AT 2018-02-06T23:00:05 ***
