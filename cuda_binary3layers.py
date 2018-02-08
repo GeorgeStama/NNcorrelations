@@ -20,7 +20,7 @@ parser.add_argument('--batch-size', type=int, default=64, metavar='N',
                     help='input batch size for training (default: 64)')
 parser.add_argument('--test-batch-size', type=int, default=250, metavar='N',
                     help='input batch size for testing (default: 1000)')
-parser.add_argument('--epochs', type=int, default=900, metavar='N',
+parser.add_argument('--epochs', type=int, default=4000, metavar='N',
                     help='number of epochs to train (default: 10)')
 parser.add_argument('--lr', type=float, default=0.1, metavar='LR',
                     help='learning rate (default: 0.01)')
@@ -588,7 +588,7 @@ def test(epoch, model):
 
 Hs = np.array([[101,101]])
 scale_arr = np.array([[0.01]])
-LR = 1e-5
+LR = 2e-5
 drop_prb = 0.
 
 testcorr_avg_EBPrelaxed = torch.zeros(args.epochs,len(Hs),len(scale_arr))
