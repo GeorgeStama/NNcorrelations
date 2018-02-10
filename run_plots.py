@@ -11,6 +11,11 @@ trnMVG = np.load('trnMVGs.npy')
 testEBP = np.load('testEBPs.npy')
 testMVG = np.load('testMVGs.npy')
 
+trnEBP = np.load('trnEBPn.npy')
+trnMVG = np.load('trnMVGn.npy')
+testEBP = np.load('testEBPn.npy')
+testMVG = np.load('testMVGn.npy')
+
 trnEBP = np.load('trnEBP.npy')
 trnMVG = np.load('trnMVG.npy')
 testEBP = np.load('testEBP.npy')
