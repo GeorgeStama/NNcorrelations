@@ -15,11 +15,11 @@ trnEBP = np.load('trnEBPn.npy')
 trnMVG = np.load('trnMVGn.npy')
 testEBP = np.load('testEBPn.npy')
 testMVG = np.load('testMVGn.npy')
-
-trnEBP = np.load('trnEBP.npy')
-trnMVG = np.load('trnMVG.npy')
-testEBP = np.load('testEBP.npy')
-testMVG = np.load('testMVG.npy')
+#
+# trnEBP = np.load('trnEBP.npy')
+# trnMVG = np.load('trnMVG.npy')
+# testEBP = np.load('testEBP.npy')
+# testMVG = np.load('testMVG.npy')
 
 
 plt.plot(trnEBP,label = 'EBP_test')
