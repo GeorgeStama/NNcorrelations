@@ -21,7 +21,7 @@ parser.add_argument('--batch-size', type=int, default=64, metavar='N',
                     help='input batch size for training (default: 64)')
 parser.add_argument('--test-batch-size', type=int, default=250, metavar='N',
                     help='input batch size for testing (default: 1000)')
-parser.add_argument('--epochs', type=int, default=2000, metavar='N',
+parser.add_argument('--epochs', type=int, default=4000, metavar='N',
                     help='number of epochs to train (default: 10)')
 parser.add_argument('--lr', type=float, default=0.1, metavar='LR',
                     help='learning rate (default: 0.01)')
@@ -615,7 +615,7 @@ for dr in range(len(scale_arr)):
         modelbin_ebp.cuda()
 
         optimizer = optim.SGD(modelbin_ebp.parameters(), lr=LR, momentum = mtm)
-        scheduler = lrsched.MultiStepLR(optimizer, milestones=[100, 200, 300,400,8000], gamma=0.2)
+        scheduler = lrsched.MultiStepLR(optimizer, milestones=[50, 100, 200,300,400,600,1200], gamma=0.2)
 
         for epoch in range(1, args.epochs + 1):
             traincorr_avg_EBP[epoch - 1, l, dr] = train(epoch,modelbin_ebp)
