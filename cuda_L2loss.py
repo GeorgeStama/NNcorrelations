@@ -20,7 +20,7 @@ parser.add_argument('--batch-size', type=int, default=64, metavar='N',
                     help='input batch size for training (default: 64)')
 parser.add_argument('--test-batch-size', type=int, default=250, metavar='N',
                     help='input batch size for testing (default: 1000)')
-parser.add_argument('--epochs', type=int, default=300, metavar='N',
+parser.add_argument('--epochs', type=int, default=150, metavar='N',
                     help='number of epochs to train (default: 10)')
 parser.add_argument('--lr', type=float, default=0.1, metavar='LR',
                     help='learning rate (default: 0.01)')
@@ -381,7 +381,7 @@ def test(epoch, model):
         #100. * correct / len(test_loader.dataset)))
     return test_loss / len(test_loader.dataset),100. * frac_correct_sum / count
 
-Hs = np.array([[501,501]])
+Hs = np.array([[201,201]])
 scale_arr = np.array([[0.01]])
 LR = 1e-3
 drop_prb = 0.
@@ -408,7 +408,7 @@ for dr in range(len(scale_arr)):
         modelbin_mvg = MVG_binaryNet(H1, H2,drop_prb,scale)
         modelbin_mvg.cuda()
 
-        optimizer = optim.Adam(modelbin_mvg.parameters(), lr=LR)
+        optimizer = optim.SGD(modelbin_mvg.parameters(), lr=LR)
 
         for epoch in range(1, args.epochs + 1):
             traincorr_avg_MVG[epoch - 1, l, dr] = train(epoch,modelbin_mvg)
@@ -425,7 +425,7 @@ for dr in range(len(scale_arr)):
         modelbin_ebp = EBP_binaryNet(H1,drop_prb,scale)
         modelbin_ebp.cuda()
 
-        optimizer = optim.Adam(modelbin_ebp.parameters(), lr=LR)
+        optimizer = optim.SGD(modelbin_ebp.parameters(), lr=LR)
 
         for epoch in range(1, args.epochs + 1):
             traincorr_avg_EBP[epoch - 1, l, dr] = train(epoch,modelbin_ebp)
@@ -436,7 +436,7 @@ for dr in range(len(scale_arr)):
 torch.save(modelbin_ebp.state_dict(), 'binaryClssifyEBP.py')
 torch.save(modelbin_ebp.state_dict(), 'binaryClssifyMVG.py')
 # .. to load your previously training model:
-np.save('trnEBPL2',torch.squeeze(traincorr_avg_EBP).numpy())
-np.save('trnMVGL2',torch.squeeze(traincorr_avg_MVG).numpy())
-np.save('testEBPL2',torch.squeeze(testcorr_avg_EBP).numpy())
-np.save('testMVGL2',torch.squeeze(testcorr_avg_MVG).numpy())
+np.save('trnEBPL2sgd',torch.squeeze(traincorr_avg_EBP).numpy())
+np.save('trnMVGL2sgd',torch.squeeze(traincorr_avg_MVG).numpy())
+np.save('testEBPL2sgd',torch.squeeze(testcorr_avg_EBP).numpy())
+np.save('testMVGL2sgd',torch.squeeze(testcorr_avg_MVG).numpy())
