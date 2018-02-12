@@ -152,11 +152,11 @@ class MVG_binaryNet(nn.Module):
 
         trg = y.type(dtype)
         isitrg = 2*trg-1
-        L1Loss = (1./M_double)*torch.sum(torch.abs(isitrg - torch.tanh(hlast)))
+        #L1Loss = (1./M_double)*torch.sum(torch.abs(isitrg - torch.tanh(hlast)))
 
         th2approx = 1- 1./(torch.sqrt(2.*sigmalast)+1)*torch.exp(-hlastbar**2/(torch.sqrt(2.*sigmalast)+1))
 
-        L2Loss = (1./M_double)*torch.sum(isitrg**2 -2*isitrg*torch.tanh(hlast)+th2approx)
+        L2Loss = torch.sum(isitrg**2 -2*isitrg*torch.tanh(hlast)+th2approx)
 
 
         loss_binary = nn.BCELoss()
@@ -502,11 +502,11 @@ class EBP_binaryNet(nn.Module):
 
         trg = y.type(dtype)
         isitrg = 2*trg-1
-        L1Loss = (1./M_double)*torch.sum(torch.abs(isitrg - torch.tanh(hlast)))
+        #L1Loss = (1./M_double)*torch.sum(torch.abs(isitrg - torch.tanh(hlast)))
 
         th2approx = 1- 1./(torch.sqrt(2.*sigmalast)+1)*torch.exp(-hlastbar**2/(torch.sqrt(2.*sigmalast)+1))
 
-        L2Loss = (1./M_double)*torch.sum(isitrg**2 -2*isitrg*torch.tanh(hlast)+th2approx)
+        L2Loss = torch.sum(isitrg**2 -2*isitrg*torch.tanh(hlast)+th2approx)
 
 
         loss_binary = nn.BCELoss()

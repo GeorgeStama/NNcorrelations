@@ -1,0 +1,6 @@
+pyenv-virtualenv: prompt changing will be removed from future release. configure `export PYENV_VIRTUALENV_DISABLE_PROMPT=1' to simulate the behavior.
+Traceback (most recent call last):
+  File "cuda_binary3layers.py", line 616, in <module>
+    optimizer = optim.Adam(modelbin_mvg.parameters(), lr=LR, momentum=mtm)
+TypeError: __init__() got an unexpected keyword argument 'momentum'
+/tmp/slurmd/job6265548/slurm_script: line 21: -num_views=2: command not found
