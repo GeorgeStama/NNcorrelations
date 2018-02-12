@@ -17248,3 +17248,755 @@ Train Epoch: 1917 [2560/12089 (21%)]	Loss: 0.010846 0.46875
 Train Epoch: 1917 [5120/12089 (42%)]	Loss: 0.010853 0.453125
 Train Epoch: 1917 [7680/12089 (63%)]	Loss: 0.010839 0.484375
 Train Epoch: 1917 [10240/12089 (85%)]	Loss: 0.010860 0.4375
+====> Epoch: 1917 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1918 [0/12089 (0%)]	Loss: 0.010818 0.53125
+Train Epoch: 1918 [2560/12089 (21%)]	Loss: 0.010825 0.515625
+Train Epoch: 1918 [5120/12089 (42%)]	Loss: 0.010811 0.546875
+Train Epoch: 1918 [7680/12089 (63%)]	Loss: 0.010776 0.625
+Train Epoch: 1918 [10240/12089 (85%)]	Loss: 0.010853 0.453125
+====> Epoch: 1918 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1919 [0/12089 (0%)]	Loss: 0.010874 0.40625
+Train Epoch: 1919 [2560/12089 (21%)]	Loss: 0.010839 0.484375
+Train Epoch: 1919 [5120/12089 (42%)]	Loss: 0.010825 0.515625
+Train Epoch: 1919 [7680/12089 (63%)]	Loss: 0.010797 0.578125
+Train Epoch: 1919 [10240/12089 (85%)]	Loss: 0.010797 0.578125
+====> Epoch: 1919 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1920 [0/12089 (0%)]	Loss: 0.010846 0.46875
+Train Epoch: 1920 [2560/12089 (21%)]	Loss: 0.010839 0.484375
+Train Epoch: 1920 [5120/12089 (42%)]	Loss: 0.010825 0.515625
+Train Epoch: 1920 [7680/12089 (63%)]	Loss: 0.010832 0.5
+Train Epoch: 1920 [10240/12089 (85%)]	Loss: 0.010818 0.53125
+====> Epoch: 1920 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1921 [0/12089 (0%)]	Loss: 0.010839 0.484375
+Train Epoch: 1921 [2560/12089 (21%)]	Loss: 0.010825 0.515625
+Train Epoch: 1921 [5120/12089 (42%)]	Loss: 0.010846 0.46875
+Train Epoch: 1921 [7680/12089 (63%)]	Loss: 0.010846 0.46875
+Train Epoch: 1921 [10240/12089 (85%)]	Loss: 0.010867 0.421875
+====> Epoch: 1921 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1922 [0/12089 (0%)]	Loss: 0.010818 0.53125
+Train Epoch: 1922 [2560/12089 (21%)]	Loss: 0.010853 0.453125
+Train Epoch: 1922 [5120/12089 (42%)]	Loss: 0.010811 0.546875
+Train Epoch: 1922 [7680/12089 (63%)]	Loss: 0.010839 0.484375
+Train Epoch: 1922 [10240/12089 (85%)]	Loss: 0.010874 0.40625
+====> Epoch: 1922 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1923 [0/12089 (0%)]	Loss: 0.010853 0.453125
+Train Epoch: 1923 [2560/12089 (21%)]	Loss: 0.010832 0.5
+Train Epoch: 1923 [5120/12089 (42%)]	Loss: 0.010818 0.53125
+Train Epoch: 1923 [7680/12089 (63%)]	Loss: 0.010846 0.46875
+Train Epoch: 1923 [10240/12089 (85%)]	Loss: 0.010832 0.5
+====> Epoch: 1923 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1924 [0/12089 (0%)]	Loss: 0.010825 0.515625
+Train Epoch: 1924 [2560/12089 (21%)]	Loss: 0.010832 0.5
+Train Epoch: 1924 [5120/12089 (42%)]	Loss: 0.010839 0.484375
+Train Epoch: 1924 [7680/12089 (63%)]	Loss: 0.010860 0.4375
+Train Epoch: 1924 [10240/12089 (85%)]	Loss: 0.010804 0.5625
+====> Epoch: 1924 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1925 [0/12089 (0%)]	Loss: 0.010783 0.609375
+Train Epoch: 1925 [2560/12089 (21%)]	Loss: 0.010818 0.53125
+Train Epoch: 1925 [5120/12089 (42%)]	Loss: 0.010839 0.484375
+Train Epoch: 1925 [7680/12089 (63%)]	Loss: 0.010853 0.453125
+Train Epoch: 1925 [10240/12089 (85%)]	Loss: 0.010804 0.5625
+====> Epoch: 1925 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1926 [0/12089 (0%)]	Loss: 0.010853 0.453125
+Train Epoch: 1926 [2560/12089 (21%)]	Loss: 0.010783 0.609375
+Train Epoch: 1926 [5120/12089 (42%)]	Loss: 0.010804 0.5625
+Train Epoch: 1926 [7680/12089 (63%)]	Loss: 0.010825 0.515625
+Train Epoch: 1926 [10240/12089 (85%)]	Loss: 0.010853 0.453125
+====> Epoch: 1926 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1927 [0/12089 (0%)]	Loss: 0.010839 0.484375
+Train Epoch: 1927 [2560/12089 (21%)]	Loss: 0.010846 0.46875
+Train Epoch: 1927 [5120/12089 (42%)]	Loss: 0.010825 0.515625
+Train Epoch: 1927 [7680/12089 (63%)]	Loss: 0.010825 0.515625
+Train Epoch: 1927 [10240/12089 (85%)]	Loss: 0.010818 0.53125
+====> Epoch: 1927 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1928 [0/12089 (0%)]	Loss: 0.010832 0.5
+Train Epoch: 1928 [2560/12089 (21%)]	Loss: 0.010832 0.5
+Train Epoch: 1928 [5120/12089 (42%)]	Loss: 0.010783 0.609375
+Train Epoch: 1928 [7680/12089 (63%)]	Loss: 0.010839 0.484375
+Train Epoch: 1928 [10240/12089 (85%)]	Loss: 0.010832 0.5
+====> Epoch: 1928 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1929 [0/12089 (0%)]	Loss: 0.010825 0.515625
+Train Epoch: 1929 [2560/12089 (21%)]	Loss: 0.010860 0.4375
+Train Epoch: 1929 [5120/12089 (42%)]	Loss: 0.010867 0.421875
+Train Epoch: 1929 [7680/12089 (63%)]	Loss: 0.010811 0.546875
+Train Epoch: 1929 [10240/12089 (85%)]	Loss: 0.010804 0.5625
+====> Epoch: 1929 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (50%)
+
+Train Epoch: 1930 [0/12089 (0%)]	Loss: 0.010811 0.546875
+Train Epoch: 1930 [2560/12089 (21%)]	Loss: 0.010867 0.421875
+Train Epoch: 1930 [5120/12089 (42%)]	Loss: 0.010776 0.625
+Train Epoch: 1930 [7680/12089 (63%)]	Loss: 0.010832 0.5
+Train Epoch: 1930 [10240/12089 (85%)]	Loss: 0.010839 0.484375
+====> Epoch: 1930 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1931 [0/12089 (0%)]	Loss: 0.010846 0.46875
+Train Epoch: 1931 [2560/12089 (21%)]	Loss: 0.010860 0.4375
+Train Epoch: 1931 [5120/12089 (42%)]	Loss: 0.010825 0.515625
+Train Epoch: 1931 [7680/12089 (63%)]	Loss: 0.010811 0.546875
+Train Epoch: 1931 [10240/12089 (85%)]	Loss: 0.010867 0.421875
+====> Epoch: 1931 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1932 [0/12089 (0%)]	Loss: 0.010874 0.40625
+Train Epoch: 1932 [2560/12089 (21%)]	Loss: 0.010811 0.546875
+Train Epoch: 1932 [5120/12089 (42%)]	Loss: 0.010776 0.625
+Train Epoch: 1932 [7680/12089 (63%)]	Loss: 0.010832 0.5
+Train Epoch: 1932 [10240/12089 (85%)]	Loss: 0.010825 0.515625
+====> Epoch: 1932 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1933 [0/12089 (0%)]	Loss: 0.010881 0.390625
+Train Epoch: 1933 [2560/12089 (21%)]	Loss: 0.010874 0.40625
+Train Epoch: 1933 [5120/12089 (42%)]	Loss: 0.010839 0.484375
+Train Epoch: 1933 [7680/12089 (63%)]	Loss: 0.010888 0.375
+Train Epoch: 1933 [10240/12089 (85%)]	Loss: 0.010832 0.5
+====> Epoch: 1933 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1934 [0/12089 (0%)]	Loss: 0.010776 0.625
+Train Epoch: 1934 [2560/12089 (21%)]	Loss: 0.010832 0.5
+Train Epoch: 1934 [5120/12089 (42%)]	Loss: 0.010804 0.5625
+Train Epoch: 1934 [7680/12089 (63%)]	Loss: 0.010839 0.484375
+Train Epoch: 1934 [10240/12089 (85%)]	Loss: 0.010874 0.40625
+====> Epoch: 1934 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1935 [0/12089 (0%)]	Loss: 0.010832 0.5
+Train Epoch: 1935 [2560/12089 (21%)]	Loss: 0.010811 0.546875
+Train Epoch: 1935 [5120/12089 (42%)]	Loss: 0.010825 0.515625
+Train Epoch: 1935 [7680/12089 (63%)]	Loss: 0.010797 0.578125
+Train Epoch: 1935 [10240/12089 (85%)]	Loss: 0.010860 0.4375
+====> Epoch: 1935 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1936 [0/12089 (0%)]	Loss: 0.010790 0.59375
+Train Epoch: 1936 [2560/12089 (21%)]	Loss: 0.010783 0.609375
+Train Epoch: 1936 [5120/12089 (42%)]	Loss: 0.010867 0.421875
+Train Epoch: 1936 [7680/12089 (63%)]	Loss: 0.010853 0.453125
+Train Epoch: 1936 [10240/12089 (85%)]	Loss: 0.010839 0.484375
+====> Epoch: 1936 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1937 [0/12089 (0%)]	Loss: 0.010755 0.671875
+Train Epoch: 1937 [2560/12089 (21%)]	Loss: 0.010818 0.53125
+Train Epoch: 1937 [5120/12089 (42%)]	Loss: 0.010839 0.484375
+Train Epoch: 1937 [7680/12089 (63%)]	Loss: 0.010804 0.5625
+Train Epoch: 1937 [10240/12089 (85%)]	Loss: 0.010874 0.40625
+====> Epoch: 1937 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1938 [0/12089 (0%)]	Loss: 0.010811 0.546875
+Train Epoch: 1938 [2560/12089 (21%)]	Loss: 0.010825 0.515625
+Train Epoch: 1938 [5120/12089 (42%)]	Loss: 0.010832 0.5
+Train Epoch: 1938 [7680/12089 (63%)]	Loss: 0.010881 0.390625
+Train Epoch: 1938 [10240/12089 (85%)]	Loss: 0.010804 0.5625
+====> Epoch: 1938 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1939 [0/12089 (0%)]	Loss: 0.010818 0.53125
+Train Epoch: 1939 [2560/12089 (21%)]	Loss: 0.010937 0.265625
+Train Epoch: 1939 [5120/12089 (42%)]	Loss: 0.010832 0.5
+Train Epoch: 1939 [7680/12089 (63%)]	Loss: 0.010818 0.53125
+Train Epoch: 1939 [10240/12089 (85%)]	Loss: 0.010818 0.53125
+====> Epoch: 1939 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1940 [0/12089 (0%)]	Loss: 0.010818 0.53125
+Train Epoch: 1940 [2560/12089 (21%)]	Loss: 0.010818 0.53125
+Train Epoch: 1940 [5120/12089 (42%)]	Loss: 0.010839 0.484375
+Train Epoch: 1940 [7680/12089 (63%)]	Loss: 0.010832 0.5
+Train Epoch: 1940 [10240/12089 (85%)]	Loss: 0.010832 0.5
+====> Epoch: 1940 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1941 [0/12089 (0%)]	Loss: 0.010769 0.640625
+Train Epoch: 1941 [2560/12089 (21%)]	Loss: 0.010839 0.484375
+Train Epoch: 1941 [5120/12089 (42%)]	Loss: 0.010846 0.46875
+Train Epoch: 1941 [7680/12089 (63%)]	Loss: 0.010860 0.4375
+Train Epoch: 1941 [10240/12089 (85%)]	Loss: 0.010811 0.546875
+====> Epoch: 1941 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1942 [0/12089 (0%)]	Loss: 0.010853 0.453125
+Train Epoch: 1942 [2560/12089 (21%)]	Loss: 0.010762 0.65625
+Train Epoch: 1942 [5120/12089 (42%)]	Loss: 0.010839 0.484375
+Train Epoch: 1942 [7680/12089 (63%)]	Loss: 0.010811 0.546875
+Train Epoch: 1942 [10240/12089 (85%)]	Loss: 0.010804 0.5625
+====> Epoch: 1942 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1943 [0/12089 (0%)]	Loss: 0.010853 0.453125
+Train Epoch: 1943 [2560/12089 (21%)]	Loss: 0.010811 0.546875
+Train Epoch: 1943 [5120/12089 (42%)]	Loss: 0.010825 0.515625
+Train Epoch: 1943 [7680/12089 (63%)]	Loss: 0.010860 0.4375
+Train Epoch: 1943 [10240/12089 (85%)]	Loss: 0.010811 0.546875
+====> Epoch: 1943 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1944 [0/12089 (0%)]	Loss: 0.010811 0.546875
+Train Epoch: 1944 [2560/12089 (21%)]	Loss: 0.010825 0.515625
+Train Epoch: 1944 [5120/12089 (42%)]	Loss: 0.010839 0.484375
+Train Epoch: 1944 [7680/12089 (63%)]	Loss: 0.010860 0.4375
+Train Epoch: 1944 [10240/12089 (85%)]	Loss: 0.010797 0.578125
+====> Epoch: 1944 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1945 [0/12089 (0%)]	Loss: 0.010860 0.4375
+Train Epoch: 1945 [2560/12089 (21%)]	Loss: 0.010839 0.484375
+Train Epoch: 1945 [5120/12089 (42%)]	Loss: 0.010804 0.5625
+Train Epoch: 1945 [7680/12089 (63%)]	Loss: 0.010846 0.46875
+Train Epoch: 1945 [10240/12089 (85%)]	Loss: 0.010846 0.46875
+====> Epoch: 1945 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1946 [0/12089 (0%)]	Loss: 0.010825 0.515625
+Train Epoch: 1946 [2560/12089 (21%)]	Loss: 0.010832 0.5
+Train Epoch: 1946 [5120/12089 (42%)]	Loss: 0.010867 0.421875
+Train Epoch: 1946 [7680/12089 (63%)]	Loss: 0.010811 0.546875
+Train Epoch: 1946 [10240/12089 (85%)]	Loss: 0.010797 0.578125
+====> Epoch: 1946 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (50%)
+
+Train Epoch: 1947 [0/12089 (0%)]	Loss: 0.010860 0.4375
+Train Epoch: 1947 [2560/12089 (21%)]	Loss: 0.010797 0.578125
+Train Epoch: 1947 [5120/12089 (42%)]	Loss: 0.010755 0.671875
+Train Epoch: 1947 [7680/12089 (63%)]	Loss: 0.010818 0.53125
+Train Epoch: 1947 [10240/12089 (85%)]	Loss: 0.010846 0.46875
+====> Epoch: 1947 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1948 [0/12089 (0%)]	Loss: 0.010818 0.53125
+Train Epoch: 1948 [2560/12089 (21%)]	Loss: 0.010790 0.59375
+Train Epoch: 1948 [5120/12089 (42%)]	Loss: 0.010825 0.515625
+Train Epoch: 1948 [7680/12089 (63%)]	Loss: 0.010811 0.546875
+Train Epoch: 1948 [10240/12089 (85%)]	Loss: 0.010916 0.3125
+====> Epoch: 1948 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1949 [0/12089 (0%)]	Loss: 0.010839 0.484375
+Train Epoch: 1949 [2560/12089 (21%)]	Loss: 0.010825 0.515625
+Train Epoch: 1949 [5120/12089 (42%)]	Loss: 0.010832 0.5
+Train Epoch: 1949 [7680/12089 (63%)]	Loss: 0.010804 0.5625
+Train Epoch: 1949 [10240/12089 (85%)]	Loss: 0.010776 0.625
+====> Epoch: 1949 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1950 [0/12089 (0%)]	Loss: 0.010839 0.484375
+Train Epoch: 1950 [2560/12089 (21%)]	Loss: 0.010832 0.5
+Train Epoch: 1950 [5120/12089 (42%)]	Loss: 0.010839 0.484375
+Train Epoch: 1950 [7680/12089 (63%)]	Loss: 0.010804 0.5625
+Train Epoch: 1950 [10240/12089 (85%)]	Loss: 0.010839 0.484375
+====> Epoch: 1950 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1951 [0/12089 (0%)]	Loss: 0.010846 0.46875
+Train Epoch: 1951 [2560/12089 (21%)]	Loss: 0.010825 0.515625
+Train Epoch: 1951 [5120/12089 (42%)]	Loss: 0.010860 0.4375
+Train Epoch: 1951 [7680/12089 (63%)]	Loss: 0.010818 0.53125
+Train Epoch: 1951 [10240/12089 (85%)]	Loss: 0.010818 0.53125
+====> Epoch: 1951 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1952 [0/12089 (0%)]	Loss: 0.010818 0.53125
+Train Epoch: 1952 [2560/12089 (21%)]	Loss: 0.010769 0.640625
+Train Epoch: 1952 [5120/12089 (42%)]	Loss: 0.010874 0.40625
+Train Epoch: 1952 [7680/12089 (63%)]	Loss: 0.010846 0.46875
+Train Epoch: 1952 [10240/12089 (85%)]	Loss: 0.010832 0.5
+====> Epoch: 1952 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1953 [0/12089 (0%)]	Loss: 0.010867 0.421875
+Train Epoch: 1953 [2560/12089 (21%)]	Loss: 0.010846 0.46875
+Train Epoch: 1953 [5120/12089 (42%)]	Loss: 0.010839 0.484375
+Train Epoch: 1953 [7680/12089 (63%)]	Loss: 0.010846 0.46875
+Train Epoch: 1953 [10240/12089 (85%)]	Loss: 0.010825 0.515625
+====> Epoch: 1953 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1954 [0/12089 (0%)]	Loss: 0.010825 0.515625
+Train Epoch: 1954 [2560/12089 (21%)]	Loss: 0.010853 0.453125
+Train Epoch: 1954 [5120/12089 (42%)]	Loss: 0.010832 0.5
+Train Epoch: 1954 [7680/12089 (63%)]	Loss: 0.010797 0.578125
+Train Epoch: 1954 [10240/12089 (85%)]	Loss: 0.010818 0.53125
+====> Epoch: 1954 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1955 [0/12089 (0%)]	Loss: 0.010867 0.421875
+Train Epoch: 1955 [2560/12089 (21%)]	Loss: 0.010804 0.5625
+Train Epoch: 1955 [5120/12089 (42%)]	Loss: 0.010846 0.46875
+Train Epoch: 1955 [7680/12089 (63%)]	Loss: 0.010804 0.5625
+Train Epoch: 1955 [10240/12089 (85%)]	Loss: 0.010839 0.484375
+====> Epoch: 1955 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1956 [0/12089 (0%)]	Loss: 0.010853 0.453125
+Train Epoch: 1956 [2560/12089 (21%)]	Loss: 0.010895 0.359375
+Train Epoch: 1956 [5120/12089 (42%)]	Loss: 0.010874 0.40625
+Train Epoch: 1956 [7680/12089 (63%)]	Loss: 0.010846 0.46875
+Train Epoch: 1956 [10240/12089 (85%)]	Loss: 0.010832 0.5
+====> Epoch: 1956 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1957 [0/12089 (0%)]	Loss: 0.010818 0.53125
+Train Epoch: 1957 [2560/12089 (21%)]	Loss: 0.010804 0.5625
+Train Epoch: 1957 [5120/12089 (42%)]	Loss: 0.010818 0.53125
+Train Epoch: 1957 [7680/12089 (63%)]	Loss: 0.010888 0.375
+Train Epoch: 1957 [10240/12089 (85%)]	Loss: 0.010818 0.53125
+====> Epoch: 1957 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1958 [0/12089 (0%)]	Loss: 0.010811 0.546875
+Train Epoch: 1958 [2560/12089 (21%)]	Loss: 0.010839 0.484375
+Train Epoch: 1958 [5120/12089 (42%)]	Loss: 0.010818 0.53125
+Train Epoch: 1958 [7680/12089 (63%)]	Loss: 0.010832 0.5
+Train Epoch: 1958 [10240/12089 (85%)]	Loss: 0.010797 0.578125
+====> Epoch: 1958 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1959 [0/12089 (0%)]	Loss: 0.010804 0.5625
+Train Epoch: 1959 [2560/12089 (21%)]	Loss: 0.010846 0.46875
+Train Epoch: 1959 [5120/12089 (42%)]	Loss: 0.010804 0.5625
+Train Epoch: 1959 [7680/12089 (63%)]	Loss: 0.010797 0.578125
+Train Epoch: 1959 [10240/12089 (85%)]	Loss: 0.010839 0.484375
+====> Epoch: 1959 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1960 [0/12089 (0%)]	Loss: 0.010783 0.609375
+Train Epoch: 1960 [2560/12089 (21%)]	Loss: 0.010874 0.40625
+Train Epoch: 1960 [5120/12089 (42%)]	Loss: 0.010797 0.578125
+Train Epoch: 1960 [7680/12089 (63%)]	Loss: 0.010874 0.40625
+Train Epoch: 1960 [10240/12089 (85%)]	Loss: 0.010811 0.546875
+====> Epoch: 1960 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1961 [0/12089 (0%)]	Loss: 0.010874 0.40625
+Train Epoch: 1961 [2560/12089 (21%)]	Loss: 0.010867 0.421875
+Train Epoch: 1961 [5120/12089 (42%)]	Loss: 0.010832 0.5
+Train Epoch: 1961 [7680/12089 (63%)]	Loss: 0.010797 0.578125
+Train Epoch: 1961 [10240/12089 (85%)]	Loss: 0.010818 0.53125
+====> Epoch: 1961 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1962 [0/12089 (0%)]	Loss: 0.010846 0.46875
+Train Epoch: 1962 [2560/12089 (21%)]	Loss: 0.010783 0.609375
+Train Epoch: 1962 [5120/12089 (42%)]	Loss: 0.010825 0.515625
+Train Epoch: 1962 [7680/12089 (63%)]	Loss: 0.010867 0.421875
+Train Epoch: 1962 [10240/12089 (85%)]	Loss: 0.010825 0.515625
+====> Epoch: 1962 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1963 [0/12089 (0%)]	Loss: 0.010797 0.578125
+Train Epoch: 1963 [2560/12089 (21%)]	Loss: 0.010874 0.40625
+Train Epoch: 1963 [5120/12089 (42%)]	Loss: 0.010839 0.484375
+Train Epoch: 1963 [7680/12089 (63%)]	Loss: 0.010811 0.546875
+Train Epoch: 1963 [10240/12089 (85%)]	Loss: 0.010874 0.40625
+====> Epoch: 1963 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1964 [0/12089 (0%)]	Loss: 0.010846 0.46875
+Train Epoch: 1964 [2560/12089 (21%)]	Loss: 0.010762 0.65625
+Train Epoch: 1964 [5120/12089 (42%)]	Loss: 0.010811 0.546875
+Train Epoch: 1964 [7680/12089 (63%)]	Loss: 0.010860 0.4375
+Train Epoch: 1964 [10240/12089 (85%)]	Loss: 0.010797 0.578125
+====> Epoch: 1964 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1965 [0/12089 (0%)]	Loss: 0.010790 0.59375
+Train Epoch: 1965 [2560/12089 (21%)]	Loss: 0.010867 0.421875
+Train Epoch: 1965 [5120/12089 (42%)]	Loss: 0.010783 0.609375
+Train Epoch: 1965 [7680/12089 (63%)]	Loss: 0.010839 0.484375
+Train Epoch: 1965 [10240/12089 (85%)]	Loss: 0.010811 0.546875
+====> Epoch: 1965 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1966 [0/12089 (0%)]	Loss: 0.010860 0.4375
+Train Epoch: 1966 [2560/12089 (21%)]	Loss: 0.010776 0.625
+Train Epoch: 1966 [5120/12089 (42%)]	Loss: 0.010902 0.34375
+Train Epoch: 1966 [7680/12089 (63%)]	Loss: 0.010846 0.46875
+Train Epoch: 1966 [10240/12089 (85%)]	Loss: 0.010811 0.546875
+====> Epoch: 1966 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1967 [0/12089 (0%)]	Loss: 0.010860 0.4375
+Train Epoch: 1967 [2560/12089 (21%)]	Loss: 0.010825 0.515625
+Train Epoch: 1967 [5120/12089 (42%)]	Loss: 0.010839 0.484375
+Train Epoch: 1967 [7680/12089 (63%)]	Loss: 0.010874 0.40625
+Train Epoch: 1967 [10240/12089 (85%)]	Loss: 0.010832 0.5
+====> Epoch: 1967 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1968 [0/12089 (0%)]	Loss: 0.010825 0.515625
+Train Epoch: 1968 [2560/12089 (21%)]	Loss: 0.010902 0.34375
+Train Epoch: 1968 [5120/12089 (42%)]	Loss: 0.010825 0.515625
+Train Epoch: 1968 [7680/12089 (63%)]	Loss: 0.010846 0.46875
+Train Epoch: 1968 [10240/12089 (85%)]	Loss: 0.010888 0.375
+====> Epoch: 1968 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1969 [0/12089 (0%)]	Loss: 0.010832 0.5
+Train Epoch: 1969 [2560/12089 (21%)]	Loss: 0.010818 0.53125
+Train Epoch: 1969 [5120/12089 (42%)]	Loss: 0.010804 0.5625
+Train Epoch: 1969 [7680/12089 (63%)]	Loss: 0.010832 0.5
+Train Epoch: 1969 [10240/12089 (85%)]	Loss: 0.010776 0.625
+====> Epoch: 1969 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1970 [0/12089 (0%)]	Loss: 0.010839 0.484375
+Train Epoch: 1970 [2560/12089 (21%)]	Loss: 0.010797 0.578125
+Train Epoch: 1970 [5120/12089 (42%)]	Loss: 0.010832 0.5
+Train Epoch: 1970 [7680/12089 (63%)]	Loss: 0.010818 0.53125
+Train Epoch: 1970 [10240/12089 (85%)]	Loss: 0.010818 0.53125
+====> Epoch: 1970 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (50%)
+
+Train Epoch: 1971 [0/12089 (0%)]	Loss: 0.010825 0.515625
+Train Epoch: 1971 [2560/12089 (21%)]	Loss: 0.010846 0.46875
+Train Epoch: 1971 [5120/12089 (42%)]	Loss: 0.010818 0.53125
+Train Epoch: 1971 [7680/12089 (63%)]	Loss: 0.010853 0.453125
+Train Epoch: 1971 [10240/12089 (85%)]	Loss: 0.010839 0.484375
+====> Epoch: 1971 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1972 [0/12089 (0%)]	Loss: 0.010839 0.484375
+Train Epoch: 1972 [2560/12089 (21%)]	Loss: 0.010867 0.421875
+Train Epoch: 1972 [5120/12089 (42%)]	Loss: 0.010832 0.5
+Train Epoch: 1972 [7680/12089 (63%)]	Loss: 0.010804 0.5625
+Train Epoch: 1972 [10240/12089 (85%)]	Loss: 0.010804 0.5625
+====> Epoch: 1972 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1973 [0/12089 (0%)]	Loss: 0.010846 0.46875
+Train Epoch: 1973 [2560/12089 (21%)]	Loss: 0.010818 0.53125
+Train Epoch: 1973 [5120/12089 (42%)]	Loss: 0.010797 0.578125
+Train Epoch: 1973 [7680/12089 (63%)]	Loss: 0.010853 0.453125
+Train Epoch: 1973 [10240/12089 (85%)]	Loss: 0.010825 0.515625
+====> Epoch: 1973 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1974 [0/12089 (0%)]	Loss: 0.010867 0.421875
+Train Epoch: 1974 [2560/12089 (21%)]	Loss: 0.010804 0.5625
+Train Epoch: 1974 [5120/12089 (42%)]	Loss: 0.010853 0.453125
+Train Epoch: 1974 [7680/12089 (63%)]	Loss: 0.010811 0.546875
+Train Epoch: 1974 [10240/12089 (85%)]	Loss: 0.010811 0.546875
+====> Epoch: 1974 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1975 [0/12089 (0%)]	Loss: 0.010825 0.515625
+Train Epoch: 1975 [2560/12089 (21%)]	Loss: 0.010825 0.515625
+Train Epoch: 1975 [5120/12089 (42%)]	Loss: 0.010839 0.484375
+Train Epoch: 1975 [7680/12089 (63%)]	Loss: 0.010804 0.5625
+Train Epoch: 1975 [10240/12089 (85%)]	Loss: 0.010790 0.59375
+====> Epoch: 1975 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1976 [0/12089 (0%)]	Loss: 0.010860 0.4375
+Train Epoch: 1976 [2560/12089 (21%)]	Loss: 0.010846 0.46875
+Train Epoch: 1976 [5120/12089 (42%)]	Loss: 0.010825 0.515625
+Train Epoch: 1976 [7680/12089 (63%)]	Loss: 0.010867 0.421875
+Train Epoch: 1976 [10240/12089 (85%)]	Loss: 0.010818 0.53125
+====> Epoch: 1976 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1977 [0/12089 (0%)]	Loss: 0.010804 0.5625
+Train Epoch: 1977 [2560/12089 (21%)]	Loss: 0.010818 0.53125
+Train Epoch: 1977 [5120/12089 (42%)]	Loss: 0.010811 0.546875
+Train Epoch: 1977 [7680/12089 (63%)]	Loss: 0.010804 0.5625
+Train Epoch: 1977 [10240/12089 (85%)]	Loss: 0.010832 0.5
+====> Epoch: 1977 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1978 [0/12089 (0%)]	Loss: 0.010776 0.625
+Train Epoch: 1978 [2560/12089 (21%)]	Loss: 0.010832 0.5
+Train Epoch: 1978 [5120/12089 (42%)]	Loss: 0.010790 0.59375
+Train Epoch: 1978 [7680/12089 (63%)]	Loss: 0.010811 0.546875
+Train Epoch: 1978 [10240/12089 (85%)]	Loss: 0.010867 0.421875
+====> Epoch: 1978 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1979 [0/12089 (0%)]	Loss: 0.010818 0.53125
+Train Epoch: 1979 [2560/12089 (21%)]	Loss: 0.010818 0.53125
+Train Epoch: 1979 [5120/12089 (42%)]	Loss: 0.010846 0.46875
+Train Epoch: 1979 [7680/12089 (63%)]	Loss: 0.010839 0.484375
+Train Epoch: 1979 [10240/12089 (85%)]	Loss: 0.010783 0.609375
+====> Epoch: 1979 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1980 [0/12089 (0%)]	Loss: 0.010818 0.53125
+Train Epoch: 1980 [2560/12089 (21%)]	Loss: 0.010923 0.296875
+Train Epoch: 1980 [5120/12089 (42%)]	Loss: 0.010783 0.609375
+Train Epoch: 1980 [7680/12089 (63%)]	Loss: 0.010839 0.484375
+Train Epoch: 1980 [10240/12089 (85%)]	Loss: 0.010853 0.453125
+====> Epoch: 1980 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1981 [0/12089 (0%)]	Loss: 0.010783 0.609375
+Train Epoch: 1981 [2560/12089 (21%)]	Loss: 0.010818 0.53125
+Train Epoch: 1981 [5120/12089 (42%)]	Loss: 0.010825 0.515625
+Train Epoch: 1981 [7680/12089 (63%)]	Loss: 0.010853 0.453125
+Train Epoch: 1981 [10240/12089 (85%)]	Loss: 0.010818 0.53125
+====> Epoch: 1981 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1982 [0/12089 (0%)]	Loss: 0.010860 0.4375
+Train Epoch: 1982 [2560/12089 (21%)]	Loss: 0.010804 0.5625
+Train Epoch: 1982 [5120/12089 (42%)]	Loss: 0.010874 0.40625
+Train Epoch: 1982 [7680/12089 (63%)]	Loss: 0.010839 0.484375
+Train Epoch: 1982 [10240/12089 (85%)]	Loss: 0.010867 0.421875
+====> Epoch: 1982 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1983 [0/12089 (0%)]	Loss: 0.010769 0.640625
+Train Epoch: 1983 [2560/12089 (21%)]	Loss: 0.010832 0.5
+Train Epoch: 1983 [5120/12089 (42%)]	Loss: 0.010832 0.5
+Train Epoch: 1983 [7680/12089 (63%)]	Loss: 0.010825 0.515625
+Train Epoch: 1983 [10240/12089 (85%)]	Loss: 0.010867 0.421875
+====> Epoch: 1983 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1984 [0/12089 (0%)]	Loss: 0.010860 0.4375
+Train Epoch: 1984 [2560/12089 (21%)]	Loss: 0.010839 0.484375
+Train Epoch: 1984 [5120/12089 (42%)]	Loss: 0.010825 0.515625
+Train Epoch: 1984 [7680/12089 (63%)]	Loss: 0.010867 0.421875
+Train Epoch: 1984 [10240/12089 (85%)]	Loss: 0.010797 0.578125
+====> Epoch: 1984 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1985 [0/12089 (0%)]	Loss: 0.010832 0.5
+Train Epoch: 1985 [2560/12089 (21%)]	Loss: 0.010818 0.53125
+Train Epoch: 1985 [5120/12089 (42%)]	Loss: 0.010839 0.484375
+Train Epoch: 1985 [7680/12089 (63%)]	Loss: 0.010832 0.5
+Train Epoch: 1985 [10240/12089 (85%)]	Loss: 0.010895 0.359375
+====> Epoch: 1985 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1986 [0/12089 (0%)]	Loss: 0.010818 0.53125
+Train Epoch: 1986 [2560/12089 (21%)]	Loss: 0.010811 0.546875
+Train Epoch: 1986 [5120/12089 (42%)]	Loss: 0.010783 0.609375
+Train Epoch: 1986 [7680/12089 (63%)]	Loss: 0.010825 0.515625
+Train Epoch: 1986 [10240/12089 (85%)]	Loss: 0.010874 0.40625
+====> Epoch: 1986 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1987 [0/12089 (0%)]	Loss: 0.010811 0.546875
+Train Epoch: 1987 [2560/12089 (21%)]	Loss: 0.010874 0.40625
+Train Epoch: 1987 [5120/12089 (42%)]	Loss: 0.010839 0.484375
+Train Epoch: 1987 [7680/12089 (63%)]	Loss: 0.010832 0.5
+Train Epoch: 1987 [10240/12089 (85%)]	Loss: 0.010825 0.515625
+====> Epoch: 1987 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1988 [0/12089 (0%)]	Loss: 0.010853 0.453125
+Train Epoch: 1988 [2560/12089 (21%)]	Loss: 0.010853 0.453125
+Train Epoch: 1988 [5120/12089 (42%)]	Loss: 0.010874 0.40625
+Train Epoch: 1988 [7680/12089 (63%)]	Loss: 0.010839 0.484375
+Train Epoch: 1988 [10240/12089 (85%)]	Loss: 0.010846 0.46875
+====> Epoch: 1988 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1989 [0/12089 (0%)]	Loss: 0.010853 0.453125
+Train Epoch: 1989 [2560/12089 (21%)]	Loss: 0.010811 0.546875
+Train Epoch: 1989 [5120/12089 (42%)]	Loss: 0.010811 0.546875
+Train Epoch: 1989 [7680/12089 (63%)]	Loss: 0.010832 0.5
+Train Epoch: 1989 [10240/12089 (85%)]	Loss: 0.010818 0.53125
+====> Epoch: 1989 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1990 [0/12089 (0%)]	Loss: 0.010832 0.5
+Train Epoch: 1990 [2560/12089 (21%)]	Loss: 0.010881 0.390625
+Train Epoch: 1990 [5120/12089 (42%)]	Loss: 0.010881 0.390625
+Train Epoch: 1990 [7680/12089 (63%)]	Loss: 0.010867 0.421875
+Train Epoch: 1990 [10240/12089 (85%)]	Loss: 0.010860 0.4375
+====> Epoch: 1990 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1991 [0/12089 (0%)]	Loss: 0.010790 0.59375
+Train Epoch: 1991 [2560/12089 (21%)]	Loss: 0.010832 0.5
+Train Epoch: 1991 [5120/12089 (42%)]	Loss: 0.010811 0.546875
+Train Epoch: 1991 [7680/12089 (63%)]	Loss: 0.010818 0.53125
+Train Epoch: 1991 [10240/12089 (85%)]	Loss: 0.010818 0.53125
+====> Epoch: 1991 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1992 [0/12089 (0%)]	Loss: 0.010832 0.5
+Train Epoch: 1992 [2560/12089 (21%)]	Loss: 0.010839 0.484375
+Train Epoch: 1992 [5120/12089 (42%)]	Loss: 0.010846 0.46875
+Train Epoch: 1992 [7680/12089 (63%)]	Loss: 0.010825 0.515625
+Train Epoch: 1992 [10240/12089 (85%)]	Loss: 0.010818 0.53125
+====> Epoch: 1992 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1993 [0/12089 (0%)]	Loss: 0.010825 0.515625
+Train Epoch: 1993 [2560/12089 (21%)]	Loss: 0.010839 0.484375
+Train Epoch: 1993 [5120/12089 (42%)]	Loss: 0.010811 0.546875
+Train Epoch: 1993 [7680/12089 (63%)]	Loss: 0.010825 0.515625
+Train Epoch: 1993 [10240/12089 (85%)]	Loss: 0.010853 0.453125
+====> Epoch: 1993 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1994 [0/12089 (0%)]	Loss: 0.010832 0.5
+Train Epoch: 1994 [2560/12089 (21%)]	Loss: 0.010783 0.609375
+Train Epoch: 1994 [5120/12089 (42%)]	Loss: 0.010881 0.390625
+Train Epoch: 1994 [7680/12089 (63%)]	Loss: 0.010825 0.515625
+Train Epoch: 1994 [10240/12089 (85%)]	Loss: 0.010839 0.484375
+====> Epoch: 1994 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1995 [0/12089 (0%)]	Loss: 0.010804 0.5625
+Train Epoch: 1995 [2560/12089 (21%)]	Loss: 0.010846 0.46875
+Train Epoch: 1995 [5120/12089 (42%)]	Loss: 0.010853 0.453125
+Train Epoch: 1995 [7680/12089 (63%)]	Loss: 0.010839 0.484375
+Train Epoch: 1995 [10240/12089 (85%)]	Loss: 0.010818 0.53125
+====> Epoch: 1995 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1996 [0/12089 (0%)]	Loss: 0.010762 0.65625
+Train Epoch: 1996 [2560/12089 (21%)]	Loss: 0.010825 0.515625
+Train Epoch: 1996 [5120/12089 (42%)]	Loss: 0.010888 0.375
+Train Epoch: 1996 [7680/12089 (63%)]	Loss: 0.010860 0.4375
+Train Epoch: 1996 [10240/12089 (85%)]	Loss: 0.010811 0.546875
+====> Epoch: 1996 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1997 [0/12089 (0%)]	Loss: 0.010811 0.546875
+Train Epoch: 1997 [2560/12089 (21%)]	Loss: 0.010867 0.421875
+Train Epoch: 1997 [5120/12089 (42%)]	Loss: 0.010811 0.546875
+Train Epoch: 1997 [7680/12089 (63%)]	Loss: 0.010853 0.453125
+Train Epoch: 1997 [10240/12089 (85%)]	Loss: 0.010874 0.40625
+====> Epoch: 1997 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1998 [0/12089 (0%)]	Loss: 0.010797 0.578125
+Train Epoch: 1998 [2560/12089 (21%)]	Loss: 0.010804 0.5625
+Train Epoch: 1998 [5120/12089 (42%)]	Loss: 0.010825 0.515625
+Train Epoch: 1998 [7680/12089 (63%)]	Loss: 0.010846 0.46875
+Train Epoch: 1998 [10240/12089 (85%)]	Loss: 0.010825 0.515625
+====> Epoch: 1998 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 1999 [0/12089 (0%)]	Loss: 0.010832 0.5
+Train Epoch: 1999 [2560/12089 (21%)]	Loss: 0.010895 0.359375
+Train Epoch: 1999 [5120/12089 (42%)]	Loss: 0.010832 0.5
+Train Epoch: 1999 [7680/12089 (63%)]	Loss: 0.010853 0.453125
+Train Epoch: 1999 [10240/12089 (85%)]	Loss: 0.010776 0.625
+====> Epoch: 1999 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+Train Epoch: 2000 [0/12089 (0%)]	Loss: 0.010818 0.53125
+Train Epoch: 2000 [2560/12089 (21%)]	Loss: 0.010804 0.5625
+Train Epoch: 2000 [5120/12089 (42%)]	Loss: 0.010769 0.640625
+Train Epoch: 2000 [7680/12089 (63%)]	Loss: 0.010804 0.5625
+Train Epoch: 2000 [10240/12089 (85%)]	Loss: 0.010783 0.609375
+====> Epoch: 2000 Average loss: 0.0108
+
+Test set: Average loss: 0.6934, Accuracy: (49%)
+
+/tmp/slurmd/job6259229/slurm_script: line 21: -num_views=2: command not found
