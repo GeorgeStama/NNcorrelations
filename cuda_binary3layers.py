@@ -613,7 +613,7 @@ for dr in range(len(scale_arr)):
         modelbin_mvg = MVG_binaryNet(H1, H2,drop_prb,scale)
         modelbin_mvg.cuda()
 
-        optimizer = optim.Adam(modelbin_mvg.parameters(), lr=LR, momentum=mtm)
+        optimizer = optim.Adam(modelbin_mvg.parameters(), lr=LR)
 
         for epoch in range(1, args.epochs + 1):
             traincorr_avg_MVG[epoch - 1, l, dr] = train(epoch,modelbin_mvg)
@@ -630,7 +630,7 @@ for dr in range(len(scale_arr)):
         modelbin_ebp = EBP_binaryNet(H1,drop_prb,scale)
         modelbin_ebp.cuda()
 
-        optimizer = optim.Adam(modelbin_ebp.parameters(), lr=LR, momentum = mtm)
+        optimizer = optim.Adam(modelbin_ebp.parameters(), lr=LR)
 
         for epoch in range(1, args.epochs + 1):
             traincorr_avg_EBP[epoch - 1, l, dr] = train(epoch,modelbin_ebp)
