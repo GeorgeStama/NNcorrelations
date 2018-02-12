@@ -586,9 +586,9 @@ def test(epoch, model):
         #100. * correct / len(test_loader.dataset)))
     return test_loss / len(test_loader.dataset),100. * frac_correct_sum / count
 
-Hs = np.array([[31,31]])
+Hs = np.array([[501,501]])
 scale_arr = np.array([[0.01]])
-LR = 2e-3
+LR = 1e-3
 drop_prb = 0.
 
 testcorr_avg_EBPrelaxed = torch.zeros(args.epochs,len(Hs),len(scale_arr))
@@ -613,7 +613,7 @@ for dr in range(len(scale_arr)):
         modelbin_mvg = MVG_binaryNet(H1, H2,drop_prb,scale)
         modelbin_mvg.cuda()
 
-        optimizer = optim.SGD(modelbin_mvg.parameters(), lr=LR, momentum=mtm)
+        optimizer = optim.Adam(modelbin_mvg.parameters(), lr=LR, momentum=mtm)
 
         for epoch in range(1, args.epochs + 1):
             traincorr_avg_MVG[epoch - 1, l, dr] = train(epoch,modelbin_mvg)
@@ -630,7 +630,7 @@ for dr in range(len(scale_arr)):
         modelbin_ebp = EBP_binaryNet(H1,drop_prb,scale)
         modelbin_ebp.cuda()
 
-        optimizer = optim.SGD(modelbin_ebp.parameters(), lr=LR, momentum = mtm)
+        optimizer = optim.Adam(modelbin_ebp.parameters(), lr=LR, momentum = mtm)
 
         for epoch in range(1, args.epochs + 1):
             traincorr_avg_EBP[epoch - 1, l, dr] = train(epoch,modelbin_ebp)
@@ -641,7 +641,7 @@ for dr in range(len(scale_arr)):
 torch.save(modelbin_ebp.state_dict(), 'binaryClssifyEBP.py')
 torch.save(modelbin_ebp.state_dict(), 'binaryClssifyMVG.py')
 # .. to load your previously training model:
-np.save('trnEBPn',torch.squeeze(traincorr_avg_EBP).numpy())
-np.save('trnMVGn',torch.squeeze(traincorr_avg_MVG).numpy())
-np.save('testEBPn',torch.squeeze(testcorr_avg_EBP).numpy())
-np.save('testMVGn',torch.squeeze(testcorr_avg_MVG).numpy())
+np.save('trnEBP',torch.squeeze(traincorr_avg_EBP).numpy())
+np.save('trnMVG',torch.squeeze(traincorr_avg_MVG).numpy())
+np.save('testEBP',torch.squeeze(testcorr_avg_EBP).numpy())
+np.save('testMVG',torch.squeeze(testcorr_avg_MVG).numpy())

@@ -5,7 +5,6 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
-import torch.optim.lr_scheduler as lrsched
 from torchvision import datasets, transforms
 from torch.autograd import Variable
 import math
@@ -13,21 +12,21 @@ from torch.nn.parameter import Parameter
 import time
 from FilteredMNIST import FilteredMNIST
 
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 # Training settings
 parser = argparse.ArgumentParser(description='PyTorch MNIST Example')
 parser.add_argument('--batch-size', type=int, default=64, metavar='N',
                     help='input batch size for training (default: 64)')
-parser.add_argument('--test-batch-size', type=int, default=1000, metavar='N',
+parser.add_argument('--test-batch-size', type=int, default=250, metavar='N',
                     help='input batch size for testing (default: 1000)')
-parser.add_argument('--epochs', type=int, default=10, metavar='N',
+parser.add_argument('--epochs', type=int, default=300, metavar='N',
                     help='number of epochs to train (default: 10)')
 parser.add_argument('--lr', type=float, default=0.1, metavar='LR',
                     help='learning rate (default: 0.01)')
 parser.add_argument('--momentum', type=float, default=0.8, metavar='M',
                     help='SGD momentum (default: 0.5)')
-parser.add_argument('--no-cuda', action='store_true', default=True,
+parser.add_argument('--no-cuda', action='store_true', default=False,
                     help='enables CUDA training')
 parser.add_argument('--seed', type=int, default=1, metavar='S',
                     help='random seed (default: 1)')
@@ -93,7 +92,7 @@ class MVG_binaryNet(nn.Module):
         xbar_next = torch.tanh(h)  # this is equal to 2*torch.sigmoid(2*h1)-1 - NEED THE 2 in the argument!
 
         # x covariance across layer 2
-        ey = Variable(torch.eye(H2))
+        ey = Variable(torch.eye(H2).cuda())
         #xc2 = (1 - xbar_next ** 2)
         #xcov_next = self.sq2pi * sigma * xc2[:, :, None] * xc2[:, None, :] / torch.sqrt(diagsig2[:, :, None] * diagsig2[:, None, :]) + ey[None, :, :] * (
         #    1 - xbar_next[:, None, :] ** 2)
@@ -133,7 +132,7 @@ class MVG_binaryNet(nn.Module):
         x1bar = torch.tanh(h1)
         x1bar_d0 = F.dropout(x1bar, p=self.drop_prob, training=self.training)
 
-        ey = Variable(torch.eye(H))
+        ey = Variable(torch.eye(H).cuda())
         xcov_1 = ey[None, :, :]*(1 - x1bar_d0[:, None, :] ** 2) # diag cov neurons layer 1
 
         '''NEW LAYER FUNCTION'''
@@ -151,10 +150,19 @@ class MVG_binaryNet(nn.Module):
         hlastbar = x4bar.mm(mlast) + self.thlast.repeat(x1bar.size()[0], 1)
         hlast = sq2pi*hlastbar/torch.sqrt(diagsiglast)
 
+        trg = y.type(dtype)
+        isitrg = 2*trg-1
+        L1Loss = (1./M_double)*torch.sum(torch.abs(isitrg - torch.tanh(hlast)))
+
+        th2approx = 1- 1./(torch.sqrt(2.*sigmalast)+1)*torch.exp(-hlastbar**2/(torch.sqrt(2.*sigmalast)+1))
+
+        L2Loss = (1./M_double)*torch.sum(isitrg**2 -2*isitrg*torch.tanh(hlast)+th2approx)
+
+
         loss_binary = nn.BCELoss()
-        m = nn.Sigmoid()
-        expected_loss = loss_binary(torch.squeeze(m(hlast)), torch.squeeze(y[:,0]).type(dtype))
-        logprobs_out = torch.log(m(hlast))
+        expected_loss = loss_binary(torch.squeeze(F.sigmoid(hlast)), torch.squeeze(y[:,0]).type(dtype).cuda())
+        expected_loss = L2Loss
+        logprobs_out = torch.log(F.sigmoid(hlast))
         pred = (torch.sigmoid(hlast) > 0.5).type(dtype)
         a = torch.abs((pred - y.type(dtype)))
         fraction_correct = (M_double - torch.sum(a)) / M_double
@@ -442,7 +450,7 @@ class EBP_binaryNet(nn.Module):
 
         # x covariance across layer 2
         xc2 = (1 - xbar_next ** 2)
-        xcov_next = Variable(torch.eye(H))[None, :, :] * (1 - xbar_next[:, None, :] ** 2)
+        xcov_next = Variable(torch.eye(H).cuda())[None, :, :] * (1 - xbar_next[:, None, :] ** 2)
 
         return xbar_next, xcov_next
 
@@ -472,7 +480,7 @@ class EBP_binaryNet(nn.Module):
         #bn = nn.BatchNorm1d(h1.size()[1], affine=False)
         x1bar = torch.tanh(h1)  #
         x1bar_d0 = F.dropout(x1bar, p=self.drop_prob, training=self.training)
-        ey =  Variable(torch.eye(H1))#.cuda())
+        ey =  Variable(torch.eye(H1).cuda())
         xcov_1 = ey[None, :, :] * ( 1 - x1bar_d0[:, None, :] ** 2)  # diagonal of the layer covariance - ie. the var of neuron i
 
         '''NEW LAYER FUNCTION'''
@@ -491,12 +499,24 @@ class EBP_binaryNet(nn.Module):
         hlast = sq2pi*hlastbar/torch.sqrt(diagsiglast)
 
 
+
+        trg = y.type(dtype)
+        isitrg = 2*trg-1
+        L1Loss = (1./M_double)*torch.sum(torch.abs(isitrg - torch.tanh(hlast)))
+
+        th2approx = 1- 1./(torch.sqrt(2.*sigmalast)+1)*torch.exp(-hlastbar**2/(torch.sqrt(2.*sigmalast)+1))
+
+        L2Loss = (1./M_double)*torch.sum(isitrg**2 -2*isitrg*torch.tanh(hlast)+th2approx)
+
+
         loss_binary = nn.BCELoss()
-        expected_loss = loss_binary(torch.squeeze(torch.sigmoid(hlast)), torch.squeeze(y[:,0]).type(dtype))
-        logprobs_out = torch.log(torch.sigmoid(hlast))
+        expected_loss = loss_binary(torch.squeeze(F.sigmoid(hlast)), torch.squeeze(y[:,0]).type(dtype).cuda())
+        expected_loss = L2Loss
+        logprobs_out = torch.log(F.sigmoid(hlast))
         pred = (torch.sigmoid(hlast) > 0.5).type(dtype)
         a = torch.abs((pred - y.type(dtype)))
         fraction_correct = (M_double - torch.sum(a)) / M_double
+
         return ((hlastbar,logprobs_out, xcov_4)), expected_loss, fraction_correct
 
 
@@ -526,11 +546,11 @@ def train(epoch, model):
     train_loss_loop = torch.zeros(938)
     for batch_idx, (data, target) in enumerate(train_loader):
         start = time.time()
+        maxtarget = torch.max(target)
+        target = (target == maxtarget).type(torch.DoubleTensor)
 
         if args.cuda:
             data, target = data.cuda(), target.cuda()
-        maxtarget = torch.max(target)
-        target = (target == maxtarget).type(torch.DoubleTensor)
 
         data, target = Variable(data), Variable(target)
         x = data.view(-1, 28 * 28)
@@ -587,10 +607,10 @@ def test(epoch, model):
         #100. * correct / len(test_loader.dataset)))
     return test_loss / len(test_loader.dataset),100. * frac_correct_sum / count
 
-Hs = np.array([[11,11]])
-scale_arr = np.array([[0.1]])
-LR = 1e-2
-drop_prb = 0.5
+Hs = np.array([[501,501]])
+scale_arr = np.array([[0.01]])
+LR = 1e-3
+drop_prb = 0.
 
 testcorr_avg_EBPrelaxed = torch.zeros(args.epochs,len(Hs),len(scale_arr))
 traincorr_avg_EBPrelaxed = torch.zeros(args.epochs,len(Hs),len(scale_arr))
@@ -604,60 +624,45 @@ traincorr_avg_EBP = torch.zeros(args.epochs,len(Hs),len(scale_arr))
 testcorr_avg_MVG = torch.zeros(args.epochs,len(Hs),len(scale_arr))
 traincorr_avg_MVG = torch.zeros(args.epochs,len(Hs),len(scale_arr))
 
+mtm = 0.9
+#print('Full covariance')
+for dr in range(len(scale_arr)):
+    scale = scale_arr[dr][0]
+    for l in range(len(Hs)):
+        H1, H2 = Hs[l]
+        #model = MVG_binaryNet(H1, H2)
+        modelbin_mvg = MVG_binaryNet(H1, H2,drop_prb,scale)
+        modelbin_mvg.cuda()
 
-fMVG = torch.zeros(args.epochs,len(Hs),len(scale_arr))
-fEBP = torch.zeros(args.epochs,len(Hs),len(scale_arr))
+        optimizer = optim.Adam(modelbin_mvg.parameters(), lr=LR, momentum=mtm)
+
+        for epoch in range(1, args.epochs + 1):
+            traincorr_avg_MVG[epoch - 1, l, dr] = train(epoch,modelbin_mvg)
+            f, testcorr_avg_MVG[epoch - 1,l,dr] = test(epoch,modelbin_mvg)
 
 
+#print('Diagonal covariance')
 
-
-print('Diagonal covariance')
 for dr in range(len(scale_arr)):
     scale = scale_arr[dr][0]
     for l in range(len(Hs)):
         H1, H2 = Hs[l]
         #model = MVG_binaryNet(H1, H2)
         modelbin_ebp = EBP_binaryNet(H1,drop_prb,scale)
+        modelbin_ebp.cuda()
 
-        optimizer = optim.Adagrad(modelbin_ebp.parameters(), lr=LR)
-        #optimizer = optim.SGD(modelbin_ebp.parameters(), lr=LR)
-        scheduler = lrsched.MultiStepLR(optimizer, milestones=[200, 400, 800, 1200], gamma=0.1)
+        optimizer = optim.Adam(modelbin_ebp.parameters(), lr=LR, momentum = mtm)
 
         for epoch in range(1, args.epochs + 1):
             traincorr_avg_EBP[epoch - 1, l, dr] = train(epoch,modelbin_ebp)
-            fEBP[epoch - 1,l,dr], testcorr_avg_EBP[epoch - 1,l,dr] = test(epoch,modelbin_ebp)
-            scheduler.step()
-#
-# print('Full covariance')
-# for dr in range(len(scale_arr)):
-#     scale = scale_arr[dr][0]
-#     for l in range(len(Hs)):
-#         H1, H2 = Hs[l]
-#         # model = MVG_binaryNet(H1, H2)
-#         modelbin_mvg = MVG_binaryNet(H1, H2, drop_prb, scale)
-#
-#         #optimizer = optim.Adagrad(modelbin_mvg.parameters(), lr=LR)
-#         optimizer = optim.SGD(modelbin_mvg.parameters(), lr=LR)
-#
-#         for epoch in range(1, args.epochs + 1):
-#             traincorr_avg_MVG[epoch - 1, l, dr] = train(epoch, modelbin_mvg)
-#             fMVG[epoch - 1, l, dr], testcorr_avg_MVG[epoch - 1, l, dr] = test(epoch, modelbin_mvg)
+            f, testcorr_avg_EBP[epoch - 1,l,dr] = test(epoch,modelbin_ebp)
+
 
 # ... after training, save your model
-#torch.save(modelbin_ebp.state_dict(), 'lucasave_1.py')
+torch.save(modelbin_ebp.state_dict(), 'binaryClssifyEBP.py')
+torch.save(modelbin_ebp.state_dict(), 'binaryClssifyMVG.py')
 # .. to load your previously training model:
-#modelbin_ebp.load_state_dict(torch.load('pickledpy.py'))
-
-
-plt.plot(torch.squeeze(traincorr_avg_EBP).numpy(),label = 'EBP_test')
-plt.plot(torch.squeeze(traincorr_avg_MVG).numpy(),label = 'MVG_test')
-plt.legend()
-plt.ylabel('test performance %')
-plt.show()
-
-plt.plot(torch.squeeze(testcorr_avg_EBP).numpy(),label = 'EBP_test')
-plt.plot(torch.squeeze(testcorr_avg_MVG).numpy(),label = 'MVG_test')
-plt.legend()
-plt.ylabel('test performance %')
-plt.show()
-
+np.save('trnEBPL2',torch.squeeze(traincorr_avg_EBP).numpy())
+np.save('trnMVGL2',torch.squeeze(traincorr_avg_MVG).numpy())
+np.save('testEBPL2',torch.squeeze(testcorr_avg_EBP).numpy())
+np.save('testMVGL2',torch.squeeze(testcorr_avg_MVG).numpy())
