@@ -21,6 +21,9 @@ testMVG = np.load('testMVGn.npy')
 # testEBP = np.load('testEBP.npy')
 # testMVG = np.load('testMVG.npy')
 
+trnEBP = np.load('trnEBPbigLR.npy')
+testEBP = np.load('testEBPbigLR.npy')
+
 
 plt.plot(trnEBP,label = 'EBP_test')
 plt.plot(trnMVG,label = 'MVG_test')

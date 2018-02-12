@@ -5,6 +5,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
+import torch.optim.lr_scheduler as lrsched
 from torchvision import datasets, transforms
 from torch.autograd import Variable
 import math
@@ -20,7 +21,7 @@ parser.add_argument('--batch-size', type=int, default=64, metavar='N',
                     help='input batch size for training (default: 64)')
 parser.add_argument('--test-batch-size', type=int, default=1000, metavar='N',
                     help='input batch size for testing (default: 1000)')
-parser.add_argument('--epochs', type=int, default=8, metavar='N',
+parser.add_argument('--epochs', type=int, default=3, metavar='N',
                     help='number of epochs to train (default: 10)')
 parser.add_argument('--lr', type=float, default=0.1, metavar='LR',
                     help='learning rate (default: 0.01)')
@@ -586,9 +587,9 @@ def test(epoch, model):
         #100. * correct / len(test_loader.dataset)))
     return test_loss / len(test_loader.dataset),100. * frac_correct_sum / count
 
-Hs = np.array([[31,31]])
+Hs = np.array([[11,11]])
 scale_arr = np.array([[0.1]])
-LR = 2e-2
+LR = 1e-2
 drop_prb = 0.5
 
 testcorr_avg_EBPrelaxed = torch.zeros(args.epochs,len(Hs),len(scale_arr))
@@ -607,6 +608,9 @@ traincorr_avg_MVG = torch.zeros(args.epochs,len(Hs),len(scale_arr))
 fMVG = torch.zeros(args.epochs,len(Hs),len(scale_arr))
 fEBP = torch.zeros(args.epochs,len(Hs),len(scale_arr))
 
+
+
+
 print('Diagonal covariance')
 for dr in range(len(scale_arr)):
     scale = scale_arr[dr][0]
@@ -617,25 +621,27 @@ for dr in range(len(scale_arr)):
 
         #optimizer = optim.Adagrad(modelbin_ebp.parameters(), lr=LR)
         optimizer = optim.SGD(modelbin_ebp.parameters(), lr=LR)
+        scheduler = lrsched.MultiStepLR(optimizer, milestones=[200, 400, 800, 1200], gamma=0.1)
 
         for epoch in range(1, args.epochs + 1):
             traincorr_avg_EBP[epoch - 1, l, dr] = train(epoch,modelbin_ebp)
             fEBP[epoch - 1,l,dr], testcorr_avg_EBP[epoch - 1,l,dr] = test(epoch,modelbin_ebp)
-
-print('Full covariance')
-for dr in range(len(scale_arr)):
-    scale = scale_arr[dr][0]
-    for l in range(len(Hs)):
-        H1, H2 = Hs[l]
-        # model = MVG_binaryNet(H1, H2)
-        modelbin_mvg = MVG_binaryNet(H1, H2, drop_prb, scale)
-
-        #optimizer = optim.Adagrad(modelbin_mvg.parameters(), lr=LR)
-        optimizer = optim.SGD(modelbin_mvg.parameters(), lr=LR)
-
-        for epoch in range(1, args.epochs + 1):
-            traincorr_avg_MVG[epoch - 1, l, dr] = train(epoch, modelbin_mvg)
-            fMVG[epoch - 1, l, dr], testcorr_avg_MVG[epoch - 1, l, dr] = test(epoch, modelbin_mvg)
+            scheduler.step()
+#
+# print('Full covariance')
+# for dr in range(len(scale_arr)):
+#     scale = scale_arr[dr][0]
+#     for l in range(len(Hs)):
+#         H1, H2 = Hs[l]
+#         # model = MVG_binaryNet(H1, H2)
+#         modelbin_mvg = MVG_binaryNet(H1, H2, drop_prb, scale)
+#
+#         #optimizer = optim.Adagrad(modelbin_mvg.parameters(), lr=LR)
+#         optimizer = optim.SGD(modelbin_mvg.parameters(), lr=LR)
+#
+#         for epoch in range(1, args.epochs + 1):
+#             traincorr_avg_MVG[epoch - 1, l, dr] = train(epoch, modelbin_mvg)
+#             fMVG[epoch - 1, l, dr], testcorr_avg_MVG[epoch - 1, l, dr] = test(epoch, modelbin_mvg)
 
 # ... after training, save your model
 #torch.save(modelbin_ebp.state_dict(), 'lucasave_1.py')
@@ -654,3 +660,4 @@ plt.plot(torch.squeeze(testcorr_avg_MVG).numpy(),label = 'MVG_test')
 plt.legend()
 plt.ylabel('test performance %')
 plt.show()
+
