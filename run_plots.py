@@ -6,21 +6,32 @@ import torch
 
 import matplotlib.pyplot as plt
 
-trnEBP = np.load('trnEBPs.npy')
-trnMVG = np.load('trnMVGs.npy')
-testEBP = np.load('testEBPs.npy')
-testMVG = np.load('testMVGs.npy')
 
 trnEBP = np.load('trnEBPn.npy')
 trnMVG = np.load('trnMVGn.npy')
 testEBP = np.load('testEBPn.npy')
 testMVG = np.load('testMVGn.npy')
 
+trnEBP = np.load('trnEBPL2sh.npy')
+trnMVG = np.load('trnMVGL2sh.npy')
+testEBP = np.load('testEBPL2sh.npy')
+testMVG = np.load('testMVGL2sh.npy')
+
+# trnEBP = np.load('trnEBPL2sgd.npy')
+# trnMVG = np.load('trnMVGL2sgd.npy')
+# testEBP = np.load('testEBPL2sgd.npy')
+# testMVG = np.load('testMVGL2sgd.npy')
+#
+# trnEBP = np.load('trnEBPL2.npy')
+# trnMVG = np.load('trnMVGL2.npy')
+# testEBP = np.load('testEBPL2.npy')
+# testMVG = np.load('testMVGL2.npy')
+# #
 # trnEBP = np.load('trnEBP.npy')
 # trnMVG = np.load('trnMVG.npy')
 # testEBP = np.load('testEBP.npy')
 # testMVG = np.load('testMVG.npy')
-#
+# #
 # trnEBP = np.load('trnEBPbigLR.npy')
 # testEBP = np.load('testEBPbigLR.npy')
 

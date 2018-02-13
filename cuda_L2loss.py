@@ -383,7 +383,7 @@ def test(epoch, model):
 
 Hs = np.array([[201,201]])
 scale_arr = np.array([[0.01]])
-LR = 1e-3
+LR = 1e-4
 drop_prb = 0.
 
 testcorr_avg_EBPrelaxed = torch.zeros(args.epochs,len(Hs),len(scale_arr))
