@@ -17,5 +17,5 @@ pyenv activate pytorch
 export DATA_DIR=/fast/users/a1195560/NNcorrelations
 export CHECKPOINT_DIR=/fast/users/a1195560/corrChkpts
 
-python cuda_allclass_L2.py 
+python cuda_allClass_L2.py 
 -num_views=2 --use_context --teacher_forcing=1.0 --vgg_loss

@@ -1,0 +1,59 @@
+pyenv-virtualenv: prompt changing will be removed from future release. configure `export PYENV_VIRTUALENV_DISABLE_PROMPT=1' to simulate the behavior.
+Train Epoch: 1 [0/12089 (0%)]	Loss: 126.040085 0.484375
+Train Epoch: 1 [2560/12089 (21%)]	Loss: 126.044121 0.453125
+Train Epoch: 1 [5120/12089 (42%)]	Loss: 126.018776 0.640625
+Train Epoch: 1 [7680/12089 (63%)]	Loss: 126.040092 0.5
+Train Epoch: 1 [10240/12089 (85%)]	Loss: 126.023224 0.46875
+====> Epoch: 1 Average loss: 125.7555
+
+Test set: Average loss: 7581.5198, Accuracy: (90%)
+
+Train Epoch: 2 [0/12089 (0%)]	Loss: 120.358833 0.8125
+Train Epoch: 2 [2560/12089 (21%)]	Loss: 42.947914 0.859375
+Train Epoch: 2 [5120/12089 (42%)]	Loss: 13.574623 0.984375
+Train Epoch: 2 [7680/12089 (63%)]	Loss: 16.676563 0.96875
+Train Epoch: 2 [10240/12089 (85%)]	Loss: 9.303551 0.96875
+====> Epoch: 2 Average loss: 31.6106
+
+Test set: Average loss: 743.1328, Accuracy: (96%)
+
+Train Epoch: 3 [0/12089 (0%)]	Loss: 16.342253 0.9375
+Train Epoch: 3 [2560/12089 (21%)]	Loss: 5.777004 0.984375
+Train Epoch: 3 [5120/12089 (42%)]	Loss: 6.501091 0.984375
+Train Epoch: 3 [7680/12089 (63%)]	Loss: 13.500799 0.9375
+Train Epoch: 3 [10240/12089 (85%)]	Loss: 4.771355 0.984375
+====> Epoch: 3 Average loss: 10.7802
+
+Test set: Average loss: 582.7001, Accuracy: (97%)
+
+Train Epoch: 4 [0/12089 (0%)]	Loss: 9.379008 0.96875
+Train Epoch: 4 [2560/12089 (21%)]	Loss: 4.798306 0.984375
+Train Epoch: 4 [5120/12089 (42%)]	Loss: 12.687646 0.953125
+Train Epoch: 4 [7680/12089 (63%)]	Loss: 10.542034 0.96875
+Train Epoch: 4 [10240/12089 (85%)]	Loss: 4.446511 1.0
+====> Epoch: 4 Average loss: 9.1294
+
+Test set: Average loss: 528.2944, Accuracy: (97%)
+
+Train Epoch: 5 [0/12089 (0%)]	Loss: 1.627800 1.0
+Train Epoch: 5 [2560/12089 (21%)]	Loss: 7.719687 0.96875
+Train Epoch: 5 [5120/12089 (42%)]	Loss: 11.070798 0.953125
+Train Epoch: 5 [7680/12089 (63%)]	Loss: 10.657611 0.953125
+Train Epoch: 5 [10240/12089 (85%)]	Loss: 16.057674 0.9375
+====> Epoch: 5 Average loss: 8.3748
+
+Test set: Average loss: 506.4485, Accuracy: (97%)
+
+Train Epoch: 6 [0/12089 (0%)]	Loss: 0.643806 1.0
+Train Epoch: 6 [2560/12089 (21%)]	Loss: 4.190308 0.984375
+Train Epoch: 6 [5120/12089 (42%)]	Loss: 12.495347 0.953125
+Train Epoch: 6 [7680/12089 (63%)]	Loss: 3.462115 0.984375
+Train Epoch: 6 [10240/12089 (85%)]	Loss: 4.568501 0.984375
+====> Epoch: 6 Average loss: 7.9285
+
+Test set: Average loss: 442.4453, Accuracy: (98%)
+
+Train Epoch: 7 [0/12089 (0%)]	Loss: 9.270411 0.96875
+Train Epoch: 7 [2560/12089 (21%)]	Loss: 7.979810 0.96875
+Train Epoch: 7 [5120/12089 (42%)]	Loss: 3.921135 0.984375
+Train Epoch: 7 [7680/12089 (63%)]	Loss: 11.963070 0.953125
