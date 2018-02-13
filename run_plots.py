@@ -39,7 +39,7 @@ testMVG = np.load('testMVGL2sh.npy')
 plt.plot(trnEBP,label = 'EBP_test')
 plt.plot(trnMVG,label = 'MVG_test')
 plt.legend()
-plt.ylabel('test performance %')
+plt.ylabel('training loss')
 plt.show()
 
 plt.plot(testEBP,label = 'EBP_test')
