@@ -18,7 +18,7 @@ parser.add_argument('--batch-size', type=int, default=64, metavar='N',
                     help='input batch size for training (default: 64)')
 parser.add_argument('--test-batch-size', type=int, default=1000, metavar='N',
                     help='input batch size for testing (default: 1000)')
-parser.add_argument('--epochs', type=int, default=2, metavar='N',
+parser.add_argument('--epochs', type=int, default=4, metavar='N',
                     help='number of epochs to train (default: 10)')
 parser.add_argument('--lr', type=float, default=0.1, metavar='LR',
                     help='learning rate (default: 0.01)')
@@ -476,7 +476,6 @@ class EBP_binaryNet(nn.Module):
         x3bar, xcov_3 = self.EBP_layer(F.dropout(x2bar, p=self.drop_prob, training=self.training), xcov_2,m2, self.th2)
         x4bar, xcov_4 = self.EBP_layer(F.dropout(x3bar, p=self.drop_prob, training=self.training), xcov_2,m3, self.th3)
         #x5bar, xcov_5 = self.EBP_layer(F.dropout(x4bar, p=self.drop_prob, training=self.training), xcov_4,m4, self.th4)
-
         H, H2 = mlast.size()
         sigmalast = torch.t(mlast)[None, :, :].repeat(M, 1, 1).bmm(xcov_4.clone().bmm(mlast.repeat(M, 1, 1))) + torch.diag(
             torch.sum(1 - mlast ** 2, 0)).repeat(M, 1, 1)
@@ -489,15 +488,17 @@ class EBP_binaryNet(nn.Module):
         trg = y.type(dtype)
         isitrg = 2*trg-1
         #L1Loss = (1./M_double)*torch.sum(torch.abs(isitrg - torch.tanh(hlast)))
-        th2approx = isitrg**2- 1./(torch.sqrt(2.*diagsiglast)+1)*torch.exp(-hlastbar**2/(torch.sqrt(2.*diagsiglast)+1))
+        th2approx = 1**2- 1./(torch.sqrt(2.*diagsiglast)+1)*torch.exp(-hlastbar**2/(torch.sqrt(2.*diagsiglast)+1))
 
-        L2Loss = torch.sum(isitrg.cpu()**2 -2*isitrg.cpu()*torch.tanh(hlast.cpu())+th2approx.cpu())
+        L2Loss = torch.sum(isitrg**2 -2*isitrg*torch.tanh(hlast)+th2approx)
 
-        logprobs_out = F.log_softmax(hlastbar)
-        val, ind = torch.max(hlastbar, 1)
+        logprobs_out = F.log_softmax(hlast)
+        expected_loss = F.nll_loss(logprobs_out, target)
+
+        val, ind = torch.max(hlast, 1)
         tem = y.type(dtype) - ind.type(dtype)[:, None]
         fraction_correct = (M_double - torch.sum((tem != 0)).type(dtype)) / M_double
-        expected_loss =  self.expected_loss(target, (hlastbar, logprobs_out))
+        #expected_loss =  self.expected_loss(target, (hlastbar, logprobs_out))
         expected_loss = L2Loss
         return ((hlastbar, logprobs_out,xcov_4)), expected_loss, fraction_correct
 
@@ -576,9 +577,9 @@ def test(epoch, model):
         100. * correct / len(test_loader.dataset)))
     return test_loss / len(test_loader.dataset), 100. * correct / len(test_loader.dataset)
 
-Hs = np.array([[30,30]])
-scale_arr = np.array([[0.1]])
-LR = 3e-2
+Hs = np.array([[11,11]])
+scale_arr = np.array([[0.01]])
+LR = 1e-3
 drop_prb = 0.
 
 testcorr_avg_EBPrelaxed = torch.zeros(args.epochs,len(Hs),len(scale_arr))

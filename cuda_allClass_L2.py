@@ -392,21 +392,6 @@ testcorr_avg_MVG = torch.zeros(args.epochs,len(Hs),len(scale_arr))
 traincorr_avg_MVG = torch.zeros(args.epochs,len(Hs),len(scale_arr))
 
 mtm = 0.9
-#print('Full covariance')
-for dr in range(len(scale_arr)):
-    scale = scale_arr[dr][0]
-    for l in range(len(Hs)):
-        H1, H2 = Hs[l]
-        #model = MVG_binaryNet(H1, H2)
-        modelbin_mvg = MVG_binaryNet(H1, H2,drop_prb,scale)
-        modelbin_mvg.cuda()
-
-        optimizer = optim.Adam(modelbin_mvg.parameters(), lr=LR)
-
-        for epoch in range(1, args.epochs + 1):
-            traincorr_avg_MVG[epoch - 1, l, dr] = train(epoch,modelbin_mvg)
-            f, testcorr_avg_MVG[epoch - 1,l,dr] = test(epoch,modelbin_mvg)
-
 
 #print('Diagonal covariance')
 
@@ -424,6 +409,21 @@ for dr in range(len(scale_arr)):
             traincorr_avg_EBP[epoch - 1, l, dr] = train(epoch,modelbin_ebp)
             f, testcorr_avg_EBP[epoch - 1,l,dr] = test(epoch,modelbin_ebp)
 
+
+#print('Full covariance')
+for dr in range(len(scale_arr)):
+    scale = scale_arr[dr][0]
+    for l in range(len(Hs)):
+        H1, H2 = Hs[l]
+        #model = MVG_binaryNet(H1, H2)
+        modelbin_mvg = MVG_binaryNet(H1, H2,drop_prb,scale)
+        modelbin_mvg.cuda()
+
+        optimizer = optim.Adam(modelbin_mvg.parameters(), lr=LR)
+
+        for epoch in range(1, args.epochs + 1):
+            traincorr_avg_MVG[epoch - 1, l, dr] = train(epoch,modelbin_mvg)
+            f, testcorr_avg_MVG[epoch - 1,l,dr] = test(epoch,modelbin_mvg)
 
 # ... after training, save your model
 torch.save(modelbin_ebp.state_dict(), 'binaryClssifyEBP.py')
