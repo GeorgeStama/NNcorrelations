@@ -314,20 +314,13 @@ def train(epoch, model):
     count = -1
     train_loss_loop = torch.zeros(938)
     for batch_idx, (data, target) in enumerate(train_loader):
-        start = time.time()
-        maxtarget = torch.max(target)
-        target = (target == maxtarget).type(torch.DoubleTensor)
-
         if args.cuda:
             data, target = data.cuda(), target.cuda()
-
         data, target = Variable(data), Variable(target)
-        x = data.view(-1, 28 * 28)
-        y = target[:, None]
-        M = x.size()[0]
 
         optimizer.zero_grad()
-        ((a2,logprobs_out, xcov_3)), loss, frac_corr = model(data, target)
+        ((a2, logprobs_out, xcov_3)), loss, frac_corr = model(data, target)
+
         #print('hbar', torch.sigmoid(a2), target)
         loss.backward()
         train_loss += loss.data[0]
