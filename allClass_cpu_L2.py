@@ -18,7 +18,7 @@ parser.add_argument('--batch-size', type=int, default=64, metavar='N',
                     help='input batch size for training (default: 64)')
 parser.add_argument('--test-batch-size', type=int, default=1000, metavar='N',
                     help='input batch size for testing (default: 1000)')
-parser.add_argument('--epochs', type=int, default=4, metavar='N',
+parser.add_argument('--epochs', type=int, default=25, metavar='N',
                     help='number of epochs to train (default: 10)')
 parser.add_argument('--lr', type=float, default=0.1, metavar='LR',
                     help='learning rate (default: 0.01)')
@@ -476,7 +476,6 @@ class EBP_binaryNet(nn.Module):
         x3bar, xcov_3 = self.EBP_layer(F.dropout(x2bar, p=self.drop_prob, training=self.training), xcov_2,m2, self.th2)
         x4bar, xcov_4 = self.EBP_layer(F.dropout(x3bar, p=self.drop_prob, training=self.training), xcov_2,m3, self.th3)
         #x5bar, xcov_5 = self.EBP_layer(F.dropout(x4bar, p=self.drop_prob, training=self.training), xcov_4,m4, self.th4)
-
         H, H2 = mlast.size()
         sigmalast = torch.t(mlast)[None, :, :].repeat(M, 1, 1).bmm(xcov_4.clone().bmm(mlast.repeat(M, 1, 1))) + torch.diag(
             torch.sum(1 - mlast ** 2, 0)).repeat(M, 1, 1)
@@ -494,7 +493,7 @@ class EBP_binaryNet(nn.Module):
         L2Loss = torch.sum(isitrg**2 -2*isitrg*torch.tanh(hlast)+th2approx)
 
         logprobs_out = F.log_softmax(hlast)
-        expected_loss = F.nll_loss(logprobs_out, target)
+        #expected_loss = F.nll_loss(logprobs_out, target)
 
         val, ind = torch.max(hlast, 1)
         tem = y.type(dtype) - ind.type(dtype)[:, None]
