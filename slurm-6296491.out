@@ -1,0 +1,29 @@
+pyenv-virtualenv: prompt changing will be removed from future release. configure `export PYENV_VIRTUALENV_DISABLE_PROMPT=1' to simulate the behavior.
+Train Epoch: 1 [0/60000 (0%)]	Loss: 1.965893 0.953125
+Train Epoch: 1 [2560/60000 (4%)]	Loss: 1.965615 0.90625
+Train Epoch: 1 [5120/60000 (9%)]	Loss: 1.965307 0.90625
+Train Epoch: 1 [7680/60000 (13%)]	Loss: 1.964974 0.890625
+Train Epoch: 1 [10240/60000 (17%)]	Loss: 1.964386 0.9375
+Train Epoch: 1 [12800/60000 (21%)]	Loss: 1.963891 0.921875
+Train Epoch: 1 [15360/60000 (26%)]	Loss: 1.963689 0.84375
+Train Epoch: 1 [17920/60000 (30%)]	Loss: 1.962039 0.921875
+Train Epoch: 1 [20480/60000 (34%)]	Loss: 1.959737 0.90625
+Train Epoch: 1 [23040/60000 (38%)]	Loss: 1.954430 0.890625
+Train Epoch: 1 [25600/60000 (43%)]	Loss: 1.945415 0.875
+Train Epoch: 1 [28160/60000 (47%)]	Loss: 1.933166 0.8125
+Train Epoch: 1 [30720/60000 (51%)]	Loss: 1.887934 0.90625
+Train Epoch: 1 [33280/60000 (55%)]	Loss: 1.850151 0.890625
+Train Epoch: 1 [35840/60000 (60%)]	Loss: 1.749327 0.953125
+Train Epoch: 1 [38400/60000 (64%)]	Loss: 1.688349 0.875
+Train Epoch: 1 [40960/60000 (68%)]	Loss: 1.529983 0.9375
+Train Epoch: 1 [43520/60000 (72%)]	Loss: 1.446361 0.890625
+Train Epoch: 1 [46080/60000 (77%)]	Loss: 1.360572 0.84375
+Train Epoch: 1 [48640/60000 (81%)]	Loss: 1.207049 0.890625
+Train Epoch: 1 [51200/60000 (85%)]	Loss: 1.155308 0.84375
+Train Epoch: 1 [53760/60000 (90%)]	Loss: 0.972922 0.875
+Train Epoch: 1 [56320/60000 (94%)]	Loss: 0.864958 0.90625
+Train Epoch: 1 [58880/60000 (98%)]	Loss: 0.651643 0.953125
+====> Epoch: 1 Average loss: 1.6488
+
+Test set: Average loss: 48.7446, Accuracy: (90%)
+
