@@ -149,7 +149,7 @@ class MVG_binaryNet(nn.Module):
         hlastbar = (x4bar.mm(mlast) + self.thlast.repeat(x1bar.size()[0], 1))
         hlast = sq2pi * hlastbar / torch.sqrt(diagsiglast)
 
-        trg = y.type(dtype)
+        trg = y.type(dtype).cuda()
         isitrg = 2 * trg - 1
         # L1Loss = (1./M_double)*torch.sum(torch.abs(isitrg - torch.tanh(hlast)))
         th2approx = 1** 2 - 1. / (torch.sqrt(2.*diagsiglast) + 1) * torch.exp(
@@ -268,12 +268,12 @@ class EBP_binaryNet(nn.Module):
         hlastbar = (x4bar.mm(mlast) + self.thlast.repeat(x1bar.size()[0], 1))
         hlast = sq2pi*hlastbar/torch.sqrt(diagsiglast)
 
-        trg = y.type(dtype)
+        trg = y.type(dtype).cuda()
         isitrg = 2*trg-1
         #L1Loss = (1./M_double)*torch.sum(torch.abs(isitrg - torch.tanh(hlast)))
         th2approx = isitrg**2- 1./(torch.sqrt(2.*diagsiglast)+1)*torch.exp(-hlastbar**2/(torch.sqrt(2.*diagsiglast)+1))
 
-        L2Loss = torch.sum(isitrg.cpu()**2 -2*isitrg.cpu()*torch.tanh(hlast.cpu())+th2approx.cpu())
+        L2Loss = torch.sum(isitrg**2 -2*isitrg*torch.tanh(hlast)+th2approx)
 
         loss_binary = nn.BCELoss()
         expected_loss = L2Loss
