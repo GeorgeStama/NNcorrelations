@@ -17,6 +17,11 @@ trnMVG = np.load('trnMVGL2sh.npy')
 testEBP = np.load('testEBPL2sh.npy')
 testMVG = np.load('testMVGL2sh.npy')
 
+trnEBP = np.load('trnEBPL2big_lr3.npy')
+trnMVG = np.load('trnMVGL2big_lr3.npy')
+testEBP = np.load('testEBPL2big_lr3.npy')
+testMVG = np.load('testMVGL2big_lr3.npy')
+
 # trnEBP = np.load('trnEBPL2sgd.npy')
 # trnMVG = np.load('trnMVGL2sgd.npy')
 # testEBP = np.load('testEBPL2sgd.npy')
