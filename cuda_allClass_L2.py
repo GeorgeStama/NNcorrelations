@@ -19,7 +19,7 @@ parser.add_argument('--batch-size', type=int, default=64, metavar='N',
                     help='input batch size for training (default: 64)')
 parser.add_argument('--test-batch-size', type=int, default=250, metavar='N',
                     help='input batch size for testing (default: 1000)')
-parser.add_argument('--epochs', type=int, default=200, metavar='N',
+parser.add_argument('--epochs', type=int, default=100, metavar='N',
                     help='number of epochs to train (default: 10)')
 parser.add_argument('--lr', type=float, default=0.1, metavar='LR',
                     help='learning rate (default: 0.01)')
@@ -374,9 +374,9 @@ def test(epoch, model):
         #100. * correct / len(test_loader.dataset)))
     return test_loss / len(test_loader.dataset),100. * frac_correct_sum / count
 
-Hs = np.array([[201,201]])
+Hs = np.array([[401,401]])
 scale_arr = np.array([[0.01]])
-LR = 1e-3
+LR = 1e-4
 drop_prb = 0.
 
 testcorr_avg_EBPrelaxed = torch.zeros(args.epochs,len(Hs),len(scale_arr))
@@ -429,7 +429,7 @@ for dr in range(len(scale_arr)):
 torch.save(modelbin_ebp.state_dict(), 'binaryClssifyEBP.py')
 torch.save(modelbin_ebp.state_dict(), 'binaryClssifyMVG.py')
 # .. to load your previously training model:
-np.save('trnEBP',torch.squeeze(traincorr_avg_EBP).numpy())
-np.save('trnMVG',torch.squeeze(traincorr_avg_MVG).numpy())
-np.save('testEBP',torch.squeeze(testcorr_avg_EBP).numpy())
-np.save('testMVG',torch.squeeze(testcorr_avg_MVG).numpy())
+np.save('trnEBPn',torch.squeeze(traincorr_avg_EBP).numpy())
+np.save('trnMVGn',torch.squeeze(traincorr_avg_MVG).numpy())
+np.save('testEBPn',torch.squeeze(testcorr_avg_EBP).numpy())
+np.save('testMVGn',torch.squeeze(testcorr_avg_MVG).numpy())
