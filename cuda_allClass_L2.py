@@ -157,11 +157,13 @@ class MVG_binaryNet(nn.Module):
 
         L2Loss = torch.sum(isitrg ** 2 - 2 * isitrg * torch.tanh(hlast) + th2approx)
 
+        logprobs_out = F.log_softmax(hlast)
+
+        val, ind = torch.max(hlast, 1)
+        tem = y.type(dtype) - ind.type(dtype)[:, None]
+        fraction_correct = (M_double - torch.sum((tem != 0)).type(dtype)) / M_double
+        # expected_loss =  self.expected_loss(target, (hlastbar, logprobs_out))
         expected_loss = L2Loss
-        logprobs_out = torch.log(F.sigmoid(hlast))
-        pred = (torch.sigmoid(hlast) > 0.5).type(dtype)
-        a = torch.abs((pred - y.type(dtype)))
-        fraction_correct = (M_double - torch.sum(a)) / M_double
 
         return ((hlastbar,logprobs_out, xcov_4)), expected_loss, fraction_correct
 
@@ -275,13 +277,13 @@ class EBP_binaryNet(nn.Module):
 
         L2Loss = torch.sum(isitrg**2 -2*isitrg*torch.tanh(hlast)+th2approx)
 
-        loss_binary = nn.BCELoss()
-        expected_loss = L2Loss
-        logprobs_out = torch.log(F.sigmoid(hlast))
-        pred = (torch.sigmoid(hlast) > 0.5).type(dtype)
-        a = torch.abs((pred - y.type(dtype)))
-        fraction_correct = (M_double - torch.sum(a)) / M_double
+        logprobs_out = F.log_softmax(hlast)
 
+        val, ind = torch.max(hlast, 1)
+        tem = y.type(dtype) - ind.type(dtype)[:, None]
+        fraction_correct = (M_double - torch.sum((tem != 0)).type(dtype)) / M_double
+        #expected_loss =  self.expected_loss(target, (hlastbar, logprobs_out))
+        expected_loss = L2Loss
         return ((hlastbar,logprobs_out, xcov_4)), expected_loss, fraction_correct
 
 

@@ -476,6 +476,7 @@ class EBP_binaryNet(nn.Module):
         x3bar, xcov_3 = self.EBP_layer(F.dropout(x2bar, p=self.drop_prob, training=self.training), xcov_2,m2, self.th2)
         x4bar, xcov_4 = self.EBP_layer(F.dropout(x3bar, p=self.drop_prob, training=self.training), xcov_2,m3, self.th3)
         #x5bar, xcov_5 = self.EBP_layer(F.dropout(x4bar, p=self.drop_prob, training=self.training), xcov_4,m4, self.th4)
+
         H, H2 = mlast.size()
         sigmalast = torch.t(mlast)[None, :, :].repeat(M, 1, 1).bmm(xcov_4.clone().bmm(mlast.repeat(M, 1, 1))) + torch.diag(
             torch.sum(1 - mlast ** 2, 0)).repeat(M, 1, 1)
@@ -488,7 +489,7 @@ class EBP_binaryNet(nn.Module):
         trg = y.type(dtype)
         isitrg = 2*trg-1
         #L1Loss = (1./M_double)*torch.sum(torch.abs(isitrg - torch.tanh(hlast)))
-        th2approx = 1**2- 1./(torch.sqrt(2.*diagsiglast)+1)*torch.exp(-hlastbar**2/(torch.sqrt(2.*diagsiglast)+1))
+        th2approx = isitrg**2- 1./(torch.sqrt(2.*diagsiglast)+1)*torch.exp(-hlastbar**2/(torch.sqrt(2.*diagsiglast)+1))
 
         L2Loss = torch.sum(isitrg**2 -2*isitrg*torch.tanh(hlast)+th2approx)
 
