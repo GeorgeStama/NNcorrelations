@@ -19,7 +19,7 @@ parser.add_argument('--batch-size', type=int, default=64, metavar='N',
                     help='input batch size for training (default: 64)')
 parser.add_argument('--test-batch-size', type=int, default=250, metavar='N',
                     help='input batch size for testing (default: 1000)')
-parser.add_argument('--epochs', type=int, default=10, metavar='N',
+parser.add_argument('--epochs', type=int, default=100, metavar='N',
                     help='number of epochs to train (default: 10)')
 parser.add_argument('--lr', type=float, default=0.1, metavar='LR',
                     help='learning rate (default: 0.01)')
@@ -352,9 +352,6 @@ def test(epoch, model):
     for data, target in test_loader:
         if args.cuda:
             data, target = data.cuda(), target.cuda()
-        maxtarget = torch.max(target)
-        target = (target == maxtarget).type(torch.DoubleTensor)
-
         data, target = Variable(data), Variable(target)
         ((a2, logprobs_out,xcov_3)), loss, frac_corr = model(data, target)
         test_loss += loss.data[0]
@@ -369,7 +366,7 @@ def test(epoch, model):
         #100. * correct / len(test_loader.dataset)))
     return test_loss / len(test_loader.dataset),100. * frac_correct_sum / count
 
-Hs = np.array([[11,11]])
+Hs = np.array([[101,101]])
 scale_arr = np.array([[0.01]])
 LR = 1e-3
 drop_prb = 0.
