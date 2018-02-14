@@ -1,3 +1,0 @@
-pyenv-virtualenv: prompt changing will be removed from future release. configure `export PYENV_VIRTUALENV_DISABLE_PROMPT=1' to simulate the behavior.
-python: can't open file 'cuda_allclass_L2.py': [Errno 2] No such file or directory
-/tmp/slurmd/job6274619/slurm_script: line 21: -num_views=2: command not found
