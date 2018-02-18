@@ -26,12 +26,12 @@ testMVG = np.load('testMVGL2big_lr3.npy')
 # trnMVG = np.load('trnMVGL2sgd.npy')
 # testEBP = np.load('testEBPL2sgd.npy')
 # testMVG = np.load('testMVGL2sgd.npy')
+
+trnEBP = np.load('trnEBPL2.npy')
+trnMVG = np.load('trnMVGL2.npy')
+testEBP = np.load('testEBPL2.npy')
+testMVG = np.load('testMVGL2.npy')
 #
-# trnEBP = np.load('trnEBPL2.npy')
-# trnMVG = np.load('trnMVGL2.npy')
-# testEBP = np.load('testEBPL2.npy')
-# testMVG = np.load('testMVGL2.npy')
-# #
 # trnEBP = np.load('trnEBP.npy')
 # trnMVG = np.load('trnMVG.npy')
 # testEBP = np.load('testEBP.npy')
