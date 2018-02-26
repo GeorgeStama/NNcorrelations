@@ -1,0 +1,12 @@
+pyenv-virtualenv: prompt changing will be removed from future release. configure `export PYENV_VIRTUALENV_DISABLE_PROMPT=1' to simulate the behavior.
+Traceback (most recent call last):
+  File "statsMnist_twoClass.py", line 459, in <module>
+    traincorr_avg_MVG[epoch - 1, l, dr] = train(epoch,modelbin_mvg)
+  File "statsMnist_twoClass.py", line 380, in train
+    ((a2,logprobs_out, xcov_3)), loss, frac_corr = model(data, target)
+  File "/fast/users/a1195560/.pyenv/versions/pytorch/lib/python2.7/site-packages/torch/nn/modules/module.py", line 325, in __call__
+    result = self.forward(*input, **kwargs)
+  File "statsMnist_twoClass.py", line 131, in forward
+    bmu1 = bmu1 + y[i,0]*x[i,:][:,None]
+RuntimeError: Expected object of type Variable[torch.cuda.DoubleTensor] but found type Variable[torch.cuda.FloatTensor] for argument #1 'other'
+/tmp/slurmd/job6345795/slurm_script: line 21: -num_views=2: command not found
