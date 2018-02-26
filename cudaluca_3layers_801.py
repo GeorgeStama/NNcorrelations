@@ -125,7 +125,6 @@ class EBP_binaryNet(nn.Module):
         x1bar = torch.tanh(h1)  #
         x1bar_d0 = F.dropout(x1bar, p=self.drop_prob, training=self.training)
         ey =  Variable(torch.eye(H).cuda())
-
         xcov_1 = ey[None, :, :] * ( 1 - x1bar_d0[:, None, :] ** 2)  # diagonal of the layer covariance - ie. the var of neuron i
 
         '''NEW LAYER FUNCTION'''
